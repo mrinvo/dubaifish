@@ -49,4 +49,33 @@ class CategoyController extends Controller
 
         //
     }
+
+    public function show($id){
+        $cat = Category::select(
+            'id',
+            'name_'.app()->getLocale().' as name',
+            'des_'.app()->getLocale().' as description',
+            'img',
+
+            )->where('id',$id)->first();
+        if($cat){
+            $response = [
+               'message' => 'category retuned  successfuly',
+                'data' => $cat,
+
+            ];
+            $stat = 201;
+        }else{
+            $response = [
+                'message' => ' category not found',
+                'data' => $cat,
+
+            ];
+            $stat = 201;
+            }
+
+            return response($response,$stat);
+
+
+    }
 }

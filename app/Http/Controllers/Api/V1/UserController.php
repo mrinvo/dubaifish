@@ -179,7 +179,8 @@ class UserController extends Controller
 
 
             'user' => 'required',
-            'password' => 'required|string|'
+            'password' => 'required|string|',
+            'fb_token' => 'required',
 
         ]);
 
@@ -199,11 +200,13 @@ class UserController extends Controller
         }
 
         $token = $user->createToken('myapptoken')->plainTextToken;
+        $fb_token = $user->fb_token = $request->fb_token;
 
         $response = [
             'message' => 'logged in successfuly',
             'user' => $user,
-            'token' => $token
+            'token' => $token,
+            'fb_token' => $fb_token,
         ];
 
         return response($response,201);
@@ -211,10 +214,30 @@ class UserController extends Controller
 
 
     public function logout(Request $request){
-        auth()->user()->tokens()->delete();
-        return [
-            'messege' =>'Logged out'
-        ];
+        $request->validate([
+            'destroy' => 'required|boolean',
+        ]);
+        if($request->destroy == 0){
+            auth()->user()->tokens()->delete();
+            $fb = User::find($request->user()->id)->delete();
+            $fb->fb_token = null;
+
+
+            return [
+                'messege' =>'Logged out'
+            ];
+
+        }else{
+            auth()->user()->tokens()->delete();
+
+            User::find($request->user()->id)->delete();
+            return [
+                'messege' =>'user deleted'
+            ];
+
+
+        }
+
     }
     //
 

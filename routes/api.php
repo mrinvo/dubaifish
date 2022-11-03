@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Api\V1\CategoyController;
+use App\Http\Controllers\Api\V1\CleaningController;
 use App\Http\Controllers\Api\V1\DebtsController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\HomeController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api\V1\password\ForgotPasswordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +34,11 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
     Route::post('/verify',[UserController::class,'verify'])->middleware('auth:sanctum');
     Route::post('/logout',[UserController::class,'logout'])->middleware('auth:sanctum');
     Route::post('/login',[UserController::class,'login']);
+    //password reset
+
+    Route::post('/forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm']);
+
+    Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm']);
 
     Route::post('/Regenerate',[UserController::class,'Regenerate'])->middleware('auth:sanctum');
     Route::get('/rules',[UserController::class,'rules']);
@@ -39,10 +46,18 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
 
     // Categories start
     Route::get('/categories/index',[CategoyController::class,'index']);
+    Route::get('/categories/show/{id}',[CategoyController::class,'show']);
     Route::post('/categories/store',[CategoyController::class,'store']);
 
-
     // Categories end
+
+    // Cleaning start
+    Route::get('/cleaning/index/{cat_id}',[CleaningController::class,'index']);
+    Route::get('/cleaning/show/{id}',[CleaningController::class,'show']);
+    Route::post('/cleaning/store',[CleaningController::class,'store']);
+
+
+    // Cleaning end
 
 
 
