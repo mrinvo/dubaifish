@@ -26,7 +26,7 @@ class UserRequest extends FormRequest
 
             'name' => 'required|max:100',
              'email'=>'required|unique:users,email|email:rfc,dns',
-             'phone' => 'required|numeric',
+             'phone' => 'required|numeric|unique:users,phone',
              'password'=> 'required|confirmed'
 
 		];
