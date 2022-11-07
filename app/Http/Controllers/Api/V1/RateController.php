@@ -18,7 +18,7 @@ class RateController extends Controller
         ->where('user_id',$request->user_id)->first();
 
         if($check){
-            return response(trans('api.ratecheck'),404);
+            return response(trans('api.ratecheck'),422);
         }
 
         $request->validate([

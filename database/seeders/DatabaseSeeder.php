@@ -5,7 +5,10 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Admin;
+use App\Models\Category;
+use App\Models\Cleaning;
 use App\Models\Home;
+use App\Models\Product;
 use App\Models\Rule;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -40,10 +43,84 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Home::create([
-            'text_en' => 'من البحر لباب بيتك',
+            'text_en' => 'From the sea to your door',
             'text_ar' => 'من البحر لباب بيتك',
             'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png'
         ]);
+
+        Category::create([
+            'name_en' => 'Fish',
+            'name_ar' => 'اسماك',
+            'des_en' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
+            'des_en' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
+            'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png'
+        ]);
+
+        Category::create([
+            'name_en' => 'Shrimp',
+            'name_ar' => 'جمبري',
+            'des_en' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
+            'des_en' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
+            'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png'
+        ]);
+        Category::create([
+            'name_en' => 'Fish',
+            'name_ar' => 'اسماك',
+            'des_en' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
+            'des_en' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
+            'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png'
+        ]);
+
+        Cleaning::create([
+            'name_en' => 'clean 2',
+            'name_ar' => 'تنظيف 2',
+            'price' => 20,
+            'category_id' => 2,
+        ]);
+        Cleaning::create([
+            'name_en' => 'clean 1',
+            'name_ar' => 'تنظيف 1',
+            'price' => 20,
+            'category_id' => 2,
+        ]);
+
+        Product::create([
+            'name_en' => 'product 1',
+            'name_ar'=> 'منتج 1',
+            'description_en'=> 'this is product one description',
+            'description_ar'=> 'وصف المنتج الاول',
+            'price'=> 100,
+            'have_discount'=> 0,
+            'discounted_price'=> '',
+            'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png',
+            'category_id'=> 1,
+        ]);
+        Product::create([
+            'name_en' => 'product 2',
+            'name_ar'=> 'منتج 2',
+            'description_en'=> 'this is product one description',
+            'description_ar'=> 'وصف المنتج الاول',
+            'price'=> 100,
+            'have_discount'=> 0,
+            'discounted_price'=> '',
+            'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png',
+            'category_id'=> 1,
+        ]);
+
+        Product::create([
+            'name_en' => 'product 3',
+            'name_ar'=> 'منتج 3',
+            'description_en'=> 'this is product one description',
+            'description_ar'=> 'وصف المنتج الاول',
+            'price'=> 100,
+            'have_discount'=> 1,
+            'discounted_price'=> 50,
+            'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png',
+            'category_id'=> 2,
+        ]);
+
+
+
 
 
     }

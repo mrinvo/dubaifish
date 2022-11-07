@@ -23,7 +23,17 @@ class HomeController extends Controller
         ])->where('id',1)->first();
 
         $categories =  Category::all();
-        $products = Product::all();
+        $products = Product::select(
+            'id',
+            'name_'.app()->getLocale().' as name',
+            'description_'.app()->getLocale().' as description',
+            'price',
+            'have_discount',
+            'discounted_price',
+            'category_id',
+            'img',
+
+            )->get();
         $response = [
             'status' => true,
             'StatusCode' => 201,

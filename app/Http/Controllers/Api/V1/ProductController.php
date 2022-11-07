@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
-
+use App\Models\Item;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -78,7 +79,7 @@ class ProductController extends Controller
         //
     }
 
-    public function show($id){
+    public function show(Request $request,$id){
         $product = Product::select(
             'id',
             'name_'.app()->getLocale().' as name',
@@ -90,12 +91,37 @@ class ProductController extends Controller
             'img',
 
             )->where('id',$id)->first();
+
         if($product){
+
+            $isfish = ($product->category_id == 1) ? true : false;
+            $item = Item::where('product_id',$id)->first();
+            $user_id = $request->user()->id;
+            if($item && $item->order_id && $user_id){
+
+                $order = Order::findOrFail($item->order_id);
+                if($order){
+                    if($order->user_id == $user_id){
+                        $can = true;
+                    }
+
+                }else{
+                    $can = false;
+                }
+
+            }else{
+                $can = false;
+            }
             $response = [
                 'message' =>  trans('api.fetch'),
                 'data' => $product,
+                'fish category' => $isfish,
+                'can rate' => $can,
             ];
             $stat = 201;
+
+
+
         }else{
             $response = [
                 'message' =>  trans('api.notfound'),
@@ -140,6 +166,8 @@ class ProductController extends Controller
             return response($response,$stat);
 
     }
+
+
 
 
 }
