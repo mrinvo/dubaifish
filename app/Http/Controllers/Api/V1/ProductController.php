@@ -96,7 +96,10 @@ class ProductController extends Controller
 
             $isfish = ($product->category_id == 1) ? true : false;
             $item = Item::where('product_id',$id)->first();
-            $user_id = ($request->user()->id) ? $request->user()->id :null ;
+            if($request->user()){
+                $user_id =$request->user()->id;
+
+
             if($item && $item->order_id && $user_id){
 
                 $order = Order::findOrFail($item->order_id);
@@ -110,8 +113,11 @@ class ProductController extends Controller
                 }
 
             }else{
-                $can = false;
+
             }
+        }else{
+            $can = false;
+        }
             $response = [
                 'message' =>  trans('api.fetch'),
                 'data' => $product,
