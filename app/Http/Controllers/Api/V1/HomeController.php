@@ -20,7 +20,8 @@ class HomeController extends Controller
             'img',
             'mode',
 
-        ])->where('id',1);
+        ])->where('id',1)->first();
+
         $categories =  Category::all();
         $products = Product::all();
         $response = [
