@@ -96,7 +96,7 @@ class ProductController extends Controller
 
             $isfish = ($product->category_id == 1) ? true : false;
             $item = Item::where('product_id',$id)->first();
-            $user_id = $request->user()->id;
+            $user_id = ($request->user()->id) ? $request->user()->id :null ;
             if($item && $item->order_id && $user_id){
 
                 $order = Order::findOrFail($item->order_id);
