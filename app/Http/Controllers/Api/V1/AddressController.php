@@ -19,8 +19,10 @@ class AddressController extends Controller
         ]);
         $add = Address::create([
             'address' => $request->address,
-            'longitude' => $request->longitude,
-            'latitude' => $request->latitude,
+            'city' => $request->city,
+            'building' => $request->building,
+            'emirate' => $request->emirate,
+            'name' => $request->name,
             'user_id' => $request->user()->id,
         ]);
         $response = [
@@ -137,8 +139,11 @@ class AddressController extends Controller
             return response(trans('api.notallowed',422));
         }
 
-        $add->longitude = $request->longitude;
-        $add->latitude = $request->latitude;
+        $add->address = $request->address;
+        $add->city = $request->city;
+        $add->building = $request->building;
+        $add->emirate = $request->emirate;
+        $add->name = $request->name;
 
         $add->save();
 
