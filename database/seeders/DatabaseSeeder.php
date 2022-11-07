@@ -91,7 +91,6 @@ class DatabaseSeeder extends Seeder
             'description_ar'=> 'وصف المنتج الاول',
             'price'=> 100,
             'have_discount'=> 0,
-            'discounted_price'=> '',
             'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png',
             'category_id'=> 1,
         ]);
@@ -102,7 +101,6 @@ class DatabaseSeeder extends Seeder
             'description_ar'=> 'وصف المنتج الاول',
             'price'=> 100,
             'have_discount'=> 0,
-            'discounted_price'=> '',
             'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png',
             'category_id'=> 1,
         ]);
