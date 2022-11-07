@@ -69,7 +69,7 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
     Route::get('/address/index',[AddressController::class,'index'])->middleware('auth:sanctum');
     Route::get('/address/show/{id}',[AddressController::class,'show'])->middleware('auth:sanctum');
     Route::post('/address/update/{id}',[AddressController::class,'update'])->middleware('auth:sanctum');
-    Route::post('/address/delete',[AddressController::class,'delete'])->middleware('auth:sanctum');
+    Route::post('/address/delete/{id}',[AddressController::class,'delete'])->middleware('auth:sanctum');
 
     //address end
 
