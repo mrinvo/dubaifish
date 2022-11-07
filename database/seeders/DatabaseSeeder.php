@@ -39,15 +39,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('adminadmin'),
         ]);
 
-        Home::create([
-            'video_url' => 'https://youtu.be/lPOpzOrT9a8',
-            'landing_page_url' => 'https://ssddyonk.com/'
 
-        ]);
-
-        Rule::create([
-            'key' => 0,
-            'rules' => 'الشروط والاحكام ضع نصك'
-        ]);
     }
 }
