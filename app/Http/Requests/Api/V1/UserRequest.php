@@ -27,6 +27,7 @@ class UserRequest extends FormRequest
             'name' => 'required|max:100',
              'email'=>'required|unique:users,email|email:rfc,dns',
              'phone' => 'required|numeric|unique:users,phone',
+             'fb_token' => 'required',
              'password'=> 'required|confirmed'
 
 		];

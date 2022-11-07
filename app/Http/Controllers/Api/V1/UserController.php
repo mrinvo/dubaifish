@@ -25,6 +25,7 @@ class UserController extends Controller
             'phone' => $request->phone,
             'address' => $request->address,
             'verified' => 0,
+            'fb_token' => $request->fb_token,
             'password' => bcrypt($request->password)
 
         ]);
