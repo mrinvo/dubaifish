@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
             'name_en' => 'Fish',
             'name_ar' => 'اسماك',
             'des_en' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
-            'des_en' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
+            'des_ar' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
             'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png'
         ]);
 
@@ -60,14 +60,14 @@ class DatabaseSeeder extends Seeder
             'name_en' => 'Shrimp',
             'name_ar' => 'جمبري',
             'des_en' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
-            'des_en' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
+            'des_ar' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
             'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png'
         ]);
         Category::create([
             'name_en' => 'Fish',
             'name_ar' => 'اسماك',
             'des_en' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
-            'des_en' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
+            'des_ar' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium beatae sit consequatur ut nam atque quo enim ipsum quidem facere corrupti accusamus tempore, possimus suscipit nesciunt ducimus quam voluptates?',
             'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png'
         ]);
 
