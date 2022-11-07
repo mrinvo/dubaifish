@@ -293,7 +293,7 @@ class UserController extends Controller
         $request->validate([
             'destroy' => 'required|boolean',
         ]);
-        if($request->destroy == 1){
+        if($request->destroy == 0){
             auth()->user()->tokens()->delete();
             $fb = User::find($request->user()->id);
             $fb->fb_token = null;
