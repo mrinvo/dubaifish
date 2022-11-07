@@ -123,11 +123,11 @@ class AddressController extends Controller
         # code...
 
         $request->validate([
-            'address' => 'required,max:250',
-            'city' => 'required,max:250',
+            'address' => 'required|max:250',
+            'city' => 'required|max:250',
             'building' => 'max:250',
-            'emirate' => 'required,max:250',
-            'name' => 'required,max:250',
+            'emirate' => 'required|max:250',
+            'name' => 'required|max:250',
 
         ]);
 
