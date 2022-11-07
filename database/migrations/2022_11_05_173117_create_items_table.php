@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rates', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->integer('scale')->nullable();
-            $table->text('comment')->nullable();
-            $table->foreignId('product_id')->constrained('products');
-            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rates');
+        Schema::dropIfExists('items');
     }
 };

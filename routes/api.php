@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\AddressController;
 use App\Http\Controllers\Api\V1\CategoyController;
 use App\Http\Controllers\Api\V1\CleaningController;
 use App\Http\Controllers\Api\V1\DebtsController;
@@ -7,6 +8,8 @@ use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\HomeController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\V1\password\ForgotPasswordController;
+use App\Http\Controllers\Api\V1\ProductController;
+use App\Http\Controllers\Api\V1\RateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,11 +35,13 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
 
     Route::post('/register',[UserController::class,'Register']);
     Route::post('/verify',[UserController::class,'verify'])->middleware('auth:sanctum');
+    Route::post('/resetverify',[UserController::class,'resetverify'])->middleware('auth:sanctum');
     Route::post('/logout',[UserController::class,'logout'])->middleware('auth:sanctum');
     Route::post('/login',[UserController::class,'login']);
     //password reset
 
-    Route::post('/forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm']);
+    Route::post('/forget-password', [UserController::class, 'ForgetPasswordEmail'])->middleware('auth:sanctum');
+    Route::post('/reset-password', [UserController::class, 'ResetPassword'])->middleware('auth:sanctum','verify');
 
     Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm']);
 
@@ -56,8 +61,41 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
     Route::get('/cleaning/show/{id}',[CleaningController::class,'show']);
     Route::post('/cleaning/store',[CleaningController::class,'store']);
 
-
     // Cleaning end
+
+    //address start
+
+    Route::post('/address/store',[AddressController::class,'store'])->middleware('auth:sanctum');
+    Route::get('/address/index',[AddressController::class,'index'])->middleware('auth:sanctum');
+    Route::get('/address/show/{id}',[AddressController::class,'show'])->middleware('auth:sanctum');
+    Route::post('/address/update/{id}',[AddressController::class,'delete'])->middleware('auth:sanctum');
+    Route::post('/address/delete',[AddressController::class,'delete'])->middleware('auth:sanctum');
+
+    //address end
+
+    //products start
+    Route::post('/product/store',[ProductController::class,'store']);
+    Route::get('/product/index',[ProductController::class,'index']);
+    Route::get('/product/show/{id}',[ProductController::class,'show']);
+    Route::get('/product/category/{cat_id}',[ProductController::class,'CategoriesProduct']);
+
+    //products end
+
+
+    //rates start
+    Route::post('/rates/add',[RateController::class,'store']);
+    Route::get('/rates/ratesperproduct/{product_id}',[RateController::class,'ProductRates']);
+    //rates end
+
+    //cart start
+
+
+    //cart end
+
+
+
+
+
 
 
 

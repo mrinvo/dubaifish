@@ -35,26 +35,36 @@ class ForgotPasswordController extends Controller
 
           $token = rand(0000,9999);
 
-          DB::table('password_resets')->insert([
-              'email' => $request->email,
-              'token' => $token,
-              'created_at' => Carbon::now()
-            ]);
+        //   DB::table('password_resets')->insert([
+        //       'email' => $request->email,
+        //       'token' => $token,
+        //       'created_at' => Carbon::now()
+        //     ]);
 
-          Mail::send('email.forgetPassword', ['token' => $token], function($message) use($request){
-              $message->to($request->email);
-              $message->subject('Reset Password');
-          });
+        //   Mail::send('email.forgetPassword', ['token' => $token], function($message) use($request){
+        //       $message->to($request->email);
+        //       $message->subject('Reset Password');
+        //   });
 
-          return back()->with('message', 'We have e-mailed your password reset link!');
+        $response = [
+
+            'Message' => trans('api.emailsent'),
+            'verify code' => $token,
+
+        ];
+
+
+        return response($response,201);
+
+
       }
       /**
        * Write code on Method
        *
        * @return response()
        */
-      public function showResetPasswordForm($token) {
-         return view('auth.forgetPasswordLink', ['token' => $token]);
+      public function SubmitCode($token) {
+         return;
       }
 
       /**
