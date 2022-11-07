@@ -17,8 +17,17 @@ class CategoyController extends Controller
             'name_ar' => 'required|max:150',
             'des_en' => 'required|max:150',
             'des_en' => 'required|max:150',
+            'img' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
-        $cat = Category::create($request->all());
+        $image_path = $request->file('img')->store('api/categories','public');
+        $cat = Category::create([
+            'name_en' => $request->name_en,
+            'name_ar' => $request->name_ar,
+            'des_en' => $request->des_en,
+            'des_en' => $request->des_ar,
+            'img' => asset('storage/'.$image_path),
+
+        ]);
         $response = [
             'message' => ' category created successfuly',
             'data' => $cat,
