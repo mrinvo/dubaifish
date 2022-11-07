@@ -39,6 +39,12 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('adminadmin'),
         ]);
 
+        Home::create([
+            'text_en' => 'من البحر لباب بيتك',
+            'text_ar' => 'من البحر لباب بيتك',
+            'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png'
+        ]);
+
 
     }
 }

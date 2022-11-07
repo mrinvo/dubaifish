@@ -27,7 +27,7 @@ class HomeController extends Controller
             'status' => true,
             'StatusCode' => 201,
             'message' => '',
-            'text' => $data->text,
+            'home data' => $data,
             'categories' => $categories,
             'most selling' => $products,
 
