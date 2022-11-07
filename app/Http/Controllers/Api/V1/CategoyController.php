@@ -24,7 +24,7 @@ class CategoyController extends Controller
             'name_en' => $request->name_en,
             'name_ar' => $request->name_ar,
             'des_en' => $request->des_en,
-            'des_en' => $request->des_ar,
+            'des_ar' => $request->des_ar,
             'img' => asset('storage/'.$image_path),
 
         ]);
