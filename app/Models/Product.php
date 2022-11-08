@@ -25,4 +25,8 @@ class Product extends Model
     public function rates(){
         return $this->hasMany(Rate::class);
     }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

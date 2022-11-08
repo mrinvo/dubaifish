@@ -75,7 +75,7 @@ class DatabaseSeeder extends Seeder
             'name_en' => 'clean 2',
             'name_ar' => 'تنظيف 2',
             'price' => 20,
-            'category_id' => 2,
+            'category_id' => 1,
         ]);
         Cleaning::create([
             'name_en' => 'clean 1',
