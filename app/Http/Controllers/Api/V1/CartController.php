@@ -154,7 +154,7 @@ class CartController extends Controller
 
     }
 
-    // guest
+    ///////////////////////////////// guest ////////////////////////////////////////
 
     public function gueststore(Request $request)
     {
