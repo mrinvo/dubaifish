@@ -92,7 +92,7 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
     //cart start
 
     Route::post('/cart/user/store',[CartController::class,'userstore'])->middleware('auth:sanctum');
-    Route::post('/cart/user/index',[CartController::class,'userindex'])->middleware('auth:sanctum');
+    Route::get('/cart/user/index',[CartController::class,'userindex'])->middleware('auth:sanctum');
 
 
     //cart end
