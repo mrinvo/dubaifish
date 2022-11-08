@@ -27,6 +27,7 @@ class ProductController extends Controller
 
 
         $image_path = $request->file('img')->store('api/products','public');
+        $isfish = ($request->category_id == 1) ? true : false;
 
 
 
@@ -40,7 +41,7 @@ class ProductController extends Controller
             'have_discount'=> $request->have_discount,
             'discounted_price'=> $request->discounted_price,
             'img' => asset('storage/'.$image_path),
-
+            'isfish' => $isfish,
             'category_id'=> $request->category_id,
 
         ]);
@@ -65,6 +66,7 @@ class ProductController extends Controller
             'discounted_price',
             'category_id',
             'img',
+            'isfish',
 
             )->get();
             $response = [
@@ -89,12 +91,13 @@ class ProductController extends Controller
             'discounted_price',
             'category_id',
             'img',
+            'isfish',
 
             )->where('id',$id)->first();
 
         if($product){
 
-            $isfish = ($product->category_id == 1) ? true : false;
+
             $item = Item::where('product_id',$id)->first();
             if($request->user()){
                 $user_id =$request->user()->id;
@@ -121,7 +124,6 @@ class ProductController extends Controller
             $response = [
                 'message' =>  trans('api.fetch'),
                 'data' => $product,
-                'fish category' => $isfish,
                 'can rate' => $can,
             ];
             $stat = 201;
@@ -151,6 +153,7 @@ class ProductController extends Controller
             'discounted_price',
             'category_id',
             'img',
+            'isfish',
 
             )->where('category_id',$cat_d)->get();
         if($product){

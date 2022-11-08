@@ -93,6 +93,7 @@ class DatabaseSeeder extends Seeder
             'have_discount'=> 0,
             'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png',
             'category_id'=> 1,
+            'isfish' => true,
         ]);
         Product::create([
             'name_en' => 'product 2',
@@ -103,6 +104,7 @@ class DatabaseSeeder extends Seeder
             'have_discount'=> 0,
             'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png',
             'category_id'=> 1,
+            'isfish' => true,
         ]);
 
         Product::create([
@@ -115,6 +117,7 @@ class DatabaseSeeder extends Seeder
             'discounted_price'=> 50,
             'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png',
             'category_id'=> 2,
+            'isfish' => false,
         ]);
 
 

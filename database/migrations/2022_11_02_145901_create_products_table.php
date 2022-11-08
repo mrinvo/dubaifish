@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('img')->nullable();
             $table->foreignId('category_id')->constrained('categories');
             $table->bigInteger('sales')->default(0);
+            $table->boolean('isfish');
             $table->timestamps();
         });
     }

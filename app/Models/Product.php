@@ -19,6 +19,7 @@ class Product extends Model
         'img',
         'category_id',
         'sales',
+        'isfish'
     ];
 
     public function rates(){

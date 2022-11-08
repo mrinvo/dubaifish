@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AddressController;
+use App\Http\Controllers\Api\V1\CartController;
 use App\Http\Controllers\Api\V1\CategoyController;
 use App\Http\Controllers\Api\V1\CleaningController;
 use App\Http\Controllers\Api\V1\DebtsController;
@@ -89,6 +90,8 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
     //rates end
 
     //cart start
+
+    Route::post('/cart/store',[CartController::class,'store']);
 
 
     //cart end
