@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained('products');
             $table->foreignId('cleaning_id')->constrained('cleanings');
             $table->integer('quantity');
-            $table->foreignId('order_id')->constrained('orders')->nullable();
-            $table->foreignId('user_id')->constrained('users')->nullable();
+            $table->bigInteger('order_id')->nullable();
+            $table->bigInteger('user_id')->nullable();
             $table->bigInteger('uuid')->nullable();
             $table->timestamps();
         });
