@@ -32,6 +32,7 @@ class HomeController extends Controller
             'discounted_price',
             'category_id',
             'img',
+            'isfish',
 
             )->get();
         $response = [
