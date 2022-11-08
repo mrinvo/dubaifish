@@ -17,14 +17,34 @@ class CartController extends Controller
             'product_id' => 'required|exists:products,id',
             'cleaning_id' => 'required|exists:cleanings,id',
             'quantity' => 'required|numeric|max:200',
-            'user_id' => 'required|exists:users,id',
 
         ]);
-
+        $request->user_id = $request->user()->id;
 
         $item = Item::create($request->all());
 
+        $response = [
+            'message' =>  trans('api.cartadded'),
+            'data' => $item,
 
 
+        ];
+
+        return response($response,201);
+
+    }
+
+    public function userindex(Request $request)
+    {
+        # code...
+        $items = Item::where('user_id',$request->user_id)->get();
+        $response = [
+            'message' =>  trans('api.fetch'),
+            'data' => $items,
+
+
+        ];
+
+        return response($response,201);
     }
 }
