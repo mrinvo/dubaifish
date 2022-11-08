@@ -69,7 +69,6 @@ class CartController extends Controller
             'product_name_'.app()->getLocale().' as name',
             'cleaning_name_'.app()->getLocale().' as cleaning_name',
             'product_price',
-            'cleaning name',
             'quantity',
             'user_id',
 
