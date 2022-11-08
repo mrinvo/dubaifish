@@ -22,7 +22,20 @@ class HomeController extends Controller
 
         ])->where('id',1)->first();
 
-        $categories =  Category::with('products')->get();
+        // $categories =  Category::with('products')->get();
+        $categories =  Category::with(['products' => function ($q){
+            $q->select([
+                'id',
+                'name_'.app()->getLocale().' as name',
+                'description_'.app()->getLocale().' as description',
+                'price',
+                'have_discount',
+                'discounted_price',
+                'category_id',
+                'img',
+                'isfish',
+            ]);
+        }])->get();
         $products = Product::select(
             'id',
             'name_'.app()->getLocale().' as name',
