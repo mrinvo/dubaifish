@@ -11,8 +11,7 @@
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Scripts -->
-
-        <link rel="stylesheet" href="{{ asset('build/assets/app.8f4ff14f.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/assets/app.0462b64b.css') }}">
         <script src="{{ asset('build/assets/app.7cafe3db.js') }}"></script>
     </head>
     <body>
