@@ -22,7 +22,7 @@ class HomeController extends Controller
 
         ])->where('id',1)->first();
 
-        $categories =  Category::all()->with('products');
+        $categories =  Category::all()->products;
         $products = Product::select(
             'id',
             'name_'.app()->getLocale().' as name',
