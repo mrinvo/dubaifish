@@ -17,6 +17,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_id')->constrained('products');
             $table->foreignId('cleaning_id')->constrained('cleanings');
+            $table->string('product_name_en');
+            $table->string('product_name_ar');
+            $table->string('cleaning_name_en');
+            $table->string('cleaning_name_ar');
+            $table->string('product_price');
             $table->integer('quantity');
             $table->bigInteger('order_id')->nullable();
             $table->bigInteger('user_id')->nullable();

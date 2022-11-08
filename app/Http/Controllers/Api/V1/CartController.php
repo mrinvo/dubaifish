@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api\V1;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Cleaning;
 use App\Models\Item;
+use App\Models\Product;
 
 class CartController extends Controller
 {
@@ -20,9 +22,26 @@ class CartController extends Controller
 
         ]);
 
+        $product = Product::findOrFail($request->product_id);
+
+            if($product->discounted_price != null){
+                $price = $product->discounted_price;
+            }else{
+                $price = $product->price;
+            }
+
+            $clean = Cleaning::findOrFail($request->cleaning_id);
+
+
         $item = Item::create([
             'product_id' => $request->product_id,
             'cleaning_id' => $request->cleaning_id,
+            'product_name_en' => $product->name_en,
+            'product_name_ar' => $product->name_ar,
+            'cleaning_name_en' => $clean->name_en,
+            'cleaning_name_ar' => $clean->name_ar,
+            'product_price' => $price,
+            'cleaning name' => $clean->name,
             'quantity' => $request->quantity,
             'user_id' => $request->user()->id,
         ]);
@@ -41,21 +60,20 @@ class CartController extends Controller
     public function userindex(Request $request)
     {
         # code...
-        $items =  Item::with(['product' => function ($q){
-            $q->select([
-                'id',
-                'name_'.app()->getLocale().' as name',
-                'description_'.app()->getLocale().' as description',
-                'price',
-                'have_discount',
-                'discounted_price',
-                'category_id',
-                'img',
-                'isfish',
-            ]);
-        }])->where('user_id',$request->user()->id)->get();
 
-        // $items = Item::where('user_id',$request->user()->id)->get();
+
+        $items = Item::select([
+
+            'product_id',
+            'cleaning_id',
+            'product_name_'.app()->getLocale().' as name',
+            'cleaning_name_'.app()->getLocale().' as cleaning_name',
+            'product_price',
+            'cleaning name',
+            'quantity',
+            'user_id',
+
+        ])->where('user_id',$request->user()->id)->get();
         $response = [
             'message' =>  trans('api.fetch'),
             'data' => $items,
