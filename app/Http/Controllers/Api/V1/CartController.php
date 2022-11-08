@@ -63,7 +63,7 @@ class CartController extends Controller
 
 
         $items = Item::select([
-
+            'id',
             'product_id',
             'cleaning_id',
             'product_name_'.app()->getLocale().' as name',
@@ -208,7 +208,7 @@ class CartController extends Controller
 
 
         $items = Item::select([
-
+            'id',
             'product_id',
             'cleaning_id',
             'product_name_'.app()->getLocale().' as name',
@@ -238,7 +238,9 @@ class CartController extends Controller
 
         ]);
         # code...
-        $item = Item::where('id',$id)->first();
+        $item = Item::where('id',$id)->where('uuid',$request->uuid)->first();
+
+
 
         $product = Product::findOrFail($request->product_id);
 
