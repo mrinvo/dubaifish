@@ -41,7 +41,7 @@ class CartController extends Controller
     public function userindex(Request $request)
     {
         # code...
-        $items = Item::where('user_id',$request->user_id)->get();
+        $items = Item::where('user_id',$request->user()->id)->get();
         $response = [
             'message' =>  trans('api.fetch'),
             'data' => $items,
