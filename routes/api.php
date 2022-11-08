@@ -91,10 +91,19 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
 
     //cart start
 
+    //   user start
     Route::post('/cart/user/store',[CartController::class,'userstore'])->middleware('auth:sanctum');
     Route::get('/cart/user/index',[CartController::class,'userindex'])->middleware('auth:sanctum');
     Route::post('/cart/user/update/{id}',[CartController::class,'userupdate'])->middleware('auth:sanctum');
     Route::post('/cart/user/delete/{id}',[CartController::class,'userdelete'])->middleware('auth:sanctum');
+    //   user end
+        //   guest start
+        Route::post('/cart/guest/store',[CartController::class,'gueststore']);
+        Route::get('/cart/guest/index',[CartController::class,'guestindex']);
+        Route::post('/cart/guest/update/{id}',[CartController::class,'guestupdate']);
+        Route::post('/cart/guest/delete/{id}',[CartController::class,'guestdelete']);
+        //   guest end
+
 
 
     //cart end
@@ -115,6 +124,7 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
 
 
     //protected routes
+
 
 
 });
