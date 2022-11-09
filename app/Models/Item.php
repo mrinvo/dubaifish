@@ -20,7 +20,8 @@ class Item extends Model
         'quantity',
         'order_id',
         'user_id',
-        'uuid'
+        'uuid',
+        'product_img',
     ];
 
     public function product(){

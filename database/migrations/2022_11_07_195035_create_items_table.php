@@ -23,9 +23,10 @@ return new class extends Migration
             $table->string('cleaning_name_ar');
             $table->string('product_price');
             $table->integer('quantity');
+            $table->string('product_img')->nullable();
             $table->bigInteger('order_id')->nullable();
             $table->bigInteger('user_id')->nullable();
-            $table->bigInteger('uuid')->nullable();
+            $table->string('uuid')->nullable();
             $table->timestamps();
         });
     }
