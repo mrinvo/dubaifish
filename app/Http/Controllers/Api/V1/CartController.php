@@ -164,7 +164,7 @@ class CartController extends Controller
             'product_id' => 'required|exists:products,id',
             'cleaning_id' => 'required|exists:cleanings,id',
             'quantity' => 'required|numeric|max:200',
-            'uuid' => 'required:numeric',
+            'uuid' => 'required',
 
         ]);
 
