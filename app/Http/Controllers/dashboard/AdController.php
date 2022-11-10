@@ -14,7 +14,7 @@ class AdController extends Controller
 {
     public function destroy(Request $request)
     {
-        Auth::guard('web')->logout();
+        Auth::guard('admin')->logout();
 
         $request->session()->invalidate();
 
@@ -95,37 +95,7 @@ class AdController extends Controller
         }
     }
 
-    public function gov(){
 
-        $name = 'حكومي';
-
-        $data = Debts::where('finance_type','حكومي')->get();
-
-
-        return view('admin.types',compact('data','name'));
-
-    }
-    public function person(){
-        $name = 'أشخاص';
-
-        $data = Debts::where('finance_type','أشخاص')->get();
-        return view('admin.types',compact('data','name'));
-    }
-    public function com(){
-        $name = 'تجارية';
-        $data = Debts::where('finance_type','تجارية')->get();
-
-        return view('admin.types',compact('data','name'));
-
-    }
-    public function bank(){
-        $name = 'بنوك';
-
-        $data = Debts::where('finance_type','بنوك')->get();
-
-        return view('admin.types',compact('data','name'));
-
-    }
 
     public function delete($id){
 

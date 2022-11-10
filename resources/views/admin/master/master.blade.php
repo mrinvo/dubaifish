@@ -19,11 +19,11 @@
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
   <!-- Navbar -->
-@include('admin.layouts.nav')
+@include('admin.en.layouts.nav')
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-@include('admin.layouts.aside')
+@include('admin.en.layouts.aside')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -60,7 +60,7 @@
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-@include('admin.layouts.footer')
+@include('admin.en.layouts.footer')
 </div>
 <!-- ./wrapper -->
 
