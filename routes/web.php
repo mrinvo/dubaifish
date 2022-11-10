@@ -6,6 +6,7 @@ use App\Http\Controllers\dashboard\CleaningController;
 use App\Http\Controllers\dashboard\ProductController;
 use App\Http\Controllers\dashboard\HomeController;
 use App\Http\Controllers\dashboard\UserController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,11 @@ use App\Http\Controllers\dashboard\UserController;
 Route::get('/', function () {
     return redirect()->route('dashboard');
 })->middleware('admin');
+
+Route::get('login', [AuthenticatedSessionController::class, 'create'])
+->name('login');
+
+
 
   Route::get('/dashboard/home', [HomeController::class,'home'])->middleware(['admin'])->name('dashboard');
 
@@ -94,6 +100,7 @@ Route::prefix('/dashboard')->name('admin.')->group(function (){
     require __DIR__.'/admin_auth.php';
 
 });
+
 
 
 //  require __DIR__.'/auth.php';
