@@ -93,10 +93,28 @@ class CartController extends Controller
             'user_id',
 
         ])->where('user_id',$request->user()->id)->get();
+
+        $collect = collect($items);
+        $total_clean = 0;
+        $total_price = 0;
+        $t = 0;
+        $total = 0;
+    foreach($items as $item){
+
+        $clean = $item->cleaning->price;
+        $total_clean += $clean * $item->quantity;
+        $total_price += $item->product_price * $item->quantity;
+        $t += $total_clean + $total_price;
+
+        $total += $t;
+
+
+    }
         $response = [
             'message' =>  trans('api.fetch'),
             'cart count' => count($items),
             'data' => $items,
+            'total price' => $total,
 
 
         ];
