@@ -338,7 +338,7 @@ class CartController extends Controller
         # code...
 
         $item = Item::findOrFail($id);
-        dd($id);
+
 
         if($item && $item->uuid == $request->uuid){
             $item->delete();
