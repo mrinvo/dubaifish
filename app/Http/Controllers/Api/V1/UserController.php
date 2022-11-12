@@ -322,7 +322,7 @@ class UserController extends Controller
         $user = User::findOrFail($request->user()->id);
 
         $response = [
-            'message' => 'logged in successfuly',
+            'message' => trans('api.fetch'),
             'user' => $user,
         ];
 
@@ -337,13 +337,20 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|unique:users,phone'
+            'phone' => 'required|numeric'
         ]);
 
         $email = User::where('email','!=',$request->email)->first();
+        $phone  = User::where('phone','!=' , $request->phone)->first();
+
 
         if($email){
-            return response(trans('email already exists',422));
+            return response(trans('email already exists'),422);
+        }
+
+
+        if($phone){
+            return response(trans('phone already exists'),422);
         }
 
         $user = User::findOrFail($request->user()->id);
