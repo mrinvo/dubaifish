@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('text_en')->nullable();
             $table->text('text_ar')->nullable();
             $table->text('img')->nullable();
+            $table->string('wa_phone');
             $table->boolean('mode')->default(1);
             $table->timestamps();
         });

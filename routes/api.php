@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\V1\CleaningController;
 use App\Http\Controllers\Api\V1\DebtsController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\HomeController;
+use App\Http\Controllers\Api\V1\OrderController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\V1\password\ForgotPasswordController;
 use App\Http\Controllers\Api\V1\ProductController;
@@ -39,6 +40,8 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
     Route::post('/resetverify',[UserController::class,'resetverify'])->middleware('auth:sanctum');
     Route::post('/logout',[UserController::class,'logout'])->middleware('auth:sanctum');
     Route::post('/login',[UserController::class,'login']);
+    Route::get('/user/profile',[UserController::class,'profile'])->middleware('auth:sanctum');
+    Route::post('/user/updaeprofile',[UserController::class,'updateprofile'])->middleware('auth:sanctum');
     //password reset
 
     Route::post('/forget-password', [UserController::class, 'ForgetPasswordEmail'])->middleware('auth:sanctum');
@@ -97,6 +100,7 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
     Route::post('/cart/user/update/{id}',[CartController::class,'userupdate'])->middleware('auth:sanctum');
     Route::post('/cart/user/delete/{id}',[CartController::class,'userdelete'])->middleware('auth:sanctum');
     Route::get('/cart/user/count',[CartController::class,'usercount'])->middleware('auth:sanctum');
+    Route::post('/order/user/store',[OrderController::class,'userstore'])->middleware('auth:sanctum');
 
     //   user end
 
@@ -111,6 +115,8 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
 
 
     //cart end
+
+
 
 
 

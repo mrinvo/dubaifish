@@ -317,6 +317,52 @@ class UserController extends Controller
 
     }
 
+    public function profile(Request $request){
+
+        $user = User::findOrFail($request->user()->id);
+
+        $response = [
+            'message' => 'logged in successfuly',
+            'user' => $user,
+        ];
+
+        return response($response,201);
+
+
+
+    }
+
+    public function updateprofile(Request $request){
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|unique:users,phone'
+        ]);
+
+        $email = User::where('email','!=',$request->email)->first();
+
+        if($email){
+            return response(trans('email already exists',422));
+        }
+
+        $user = User::findOrFail($request->user()->id);
+
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+        ]);
+
+        $response = [
+            'message' => trans('api.stored'),
+            'user' => $user,
+        ];
+
+        return response($response,201);
+
+    }
+
 
     //
 

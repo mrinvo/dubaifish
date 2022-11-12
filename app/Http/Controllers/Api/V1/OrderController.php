@@ -8,4 +8,10 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     //
+
+    public function userstore(Request $request){
+
+        $user_id = $request->user()->id;
+
+    }
 }
