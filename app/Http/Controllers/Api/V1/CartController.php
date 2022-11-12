@@ -187,7 +187,7 @@ class CartController extends Controller
         ]);
 
         $old = Item::where('product_id',$request->product_id)
-        ->where('uuid_id',$request->uuid);
+        ->where('uuid_id',$request->uuid)->first();
 
         if($old){
             $old->quantity = $old->quantity + 1;
