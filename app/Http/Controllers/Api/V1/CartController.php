@@ -262,6 +262,7 @@ class CartController extends Controller
         ])->where('uuid',$request->uuid)->get();
         $response = [
             'message' =>  trans('api.fetch'),
+            'cart count' => count($items),
             'data' => $items,
 
 
