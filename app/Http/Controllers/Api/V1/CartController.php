@@ -26,7 +26,9 @@ class CartController extends Controller
         ->where('user_id',$request->user()->id)->first();
 
         if($old){
-            $old->quantity = $old->quantity + 1;
+            $old->update([
+                'quantity' => $old->quantity + $request->quantity,
+            ]);
             $response = [
                 'message' =>  trans('api.cartadded'),
                 'data' => $old,
@@ -190,7 +192,9 @@ class CartController extends Controller
         ->where('uuid_id',$request->uuid)->first();
 
         if($old){
-            $old->quantity = $old->quantity + $request->quantity;
+            $old->update([
+                'quantity' => $old->quantity + $request->quantity,
+            ]);
             $old->save();
             $response = [
                 'message' =>  trans('api.cartadded'),
