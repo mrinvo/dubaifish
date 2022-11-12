@@ -41,7 +41,7 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
     Route::post('/logout',[UserController::class,'logout'])->middleware('auth:sanctum');
     Route::post('/login',[UserController::class,'login']);
     Route::get('/user/profile',[UserController::class,'profile'])->middleware('auth:sanctum');
-    Route::post('/user/updaeprofile',[UserController::class,'updateprofile'])->middleware('auth:sanctum');
+    Route::post('/user/updateprofile',[UserController::class,'updateprofile'])->middleware('auth:sanctum');
     //password reset
 
     Route::post('/forget-password', [UserController::class, 'ForgetPasswordEmail'])->middleware('auth:sanctum');
