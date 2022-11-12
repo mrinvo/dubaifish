@@ -96,13 +96,17 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
     Route::get('/cart/user/index',[CartController::class,'userindex'])->middleware('auth:sanctum');
     Route::post('/cart/user/update/{id}',[CartController::class,'userupdate'])->middleware('auth:sanctum');
     Route::post('/cart/user/delete/{id}',[CartController::class,'userdelete'])->middleware('auth:sanctum');
+    Route::get('/cart/user/count',[CartController::class,'usercount'])->middleware('auth:sanctum');
+
     //   user end
-        //   guest start
-        Route::post('/cart/guest/store',[CartController::class,'gueststore']);
-        Route::get('/cart/guest/index',[CartController::class,'guestindex']);
-        Route::post('/cart/guest/update/{id}',[CartController::class,'guestupdate']);
-        Route::post('/cart/guest/delete/{id}',[CartController::class,'guestdelete']);
-        //   guest end
+
+    //   guest start
+    Route::post('/cart/guest/store',[CartController::class,'gueststore']);
+    Route::get('/cart/guest/index',[CartController::class,'guestindex']);
+    Route::post('/cart/guest/update/{id}',[CartController::class,'guestupdate']);
+    Route::post('/cart/guest/delete/{id}',[CartController::class,'guestdelete']);
+    Route::get('/cart/guest/count',[CartController::class,'guestcount']);
+    //   guest end
 
 
 

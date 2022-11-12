@@ -175,6 +175,20 @@ class CartController extends Controller
 
     }
 
+    public function usercount(Request $request){
+        $items = Item::where('user_id' , $request->user()->id)->get();
+        $response = [
+            'message' => trans('api.fetch'),
+            'cart_count' => count($items),
+        ];
+        $stat = 201;
+
+
+        return response($response,$stat);
+
+
+    }
+
     ///////////////////////////////// guest ////////////////////////////////////////
 
     public function gueststore(Request $request)
@@ -324,6 +338,7 @@ class CartController extends Controller
         # code...
 
         $item = Item::findOrFail($id);
+        dd($id);
 
         if($item && $item->uuid == $request->uuid){
             $item->delete();
@@ -342,6 +357,20 @@ class CartController extends Controller
             }
 
             return response($response,$stat);
+
+
+    }
+
+    public function guestcount(Request $request){
+        $items = Item::where('uuid' , $request->uuid)->get();
+        $response = [
+            'message' => trans('api.fetch'),
+            'cart_count' => count($items),
+        ];
+        $stat = 201;
+
+
+        return response($response,$stat);
 
 
     }
