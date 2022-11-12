@@ -22,6 +22,22 @@ class CartController extends Controller
 
         ]);
 
+        $old = Item::where('product_id',$request->product_id)
+        ->where('user_id',$request->user()->id);
+
+        if($old){
+            $old->quantity = $old->quantity + 1;
+            $response = [
+                'message' =>  trans('api.cartadded'),
+                'data' => $old,
+
+
+            ];
+
+            return response($response,201);
+
+        }
+
         $product = Product::findOrFail($request->product_id);
 
             if($product->discounted_price != null){
@@ -77,6 +93,7 @@ class CartController extends Controller
         ])->where('user_id',$request->user()->id)->get();
         $response = [
             'message' =>  trans('api.fetch'),
+            'cart count' => count($items),
             'data' => $items,
 
 
@@ -169,6 +186,22 @@ class CartController extends Controller
 
         ]);
 
+        $old = Item::where('product_id',$request->product_id)
+        ->where('uuid_id',$request->uuid);
+
+        if($old){
+            $old->quantity = $old->quantity + 1;
+            $response = [
+                'message' =>  trans('api.cartadded'),
+                'data' => $old,
+
+
+            ];
+
+            return response($response,201);
+
+        }
+
         $product = Product::findOrFail($request->product_id);
 
             if($product->discounted_price != null){
@@ -238,7 +271,7 @@ class CartController extends Controller
             'product_id' => 'required|exists:products,id',
             'cleaning_id' => 'required|exists:cleanings,id',
             'quantity' => 'required|numeric|max:200',
-            'uuid' => 'required|numeric',
+            'uuid' => 'required',
 
         ]);
         # code...
