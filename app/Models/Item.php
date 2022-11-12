@@ -29,6 +29,8 @@ class Item extends Model
     }
 
     public function cleaning(){
-        return $this->hasOne(Cleaning::class);
+        return $this->belongsTo(Cleaning::class);
     }
+
+
 }
