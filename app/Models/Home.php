@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Home extends Model
 {
     use HasFactory;
-    protected $fillable = ['text_en','text_ar','img','mode'];
+    protected $fillable = ['text_en','text_ar','img','mode','wa_phone'];
 
 }

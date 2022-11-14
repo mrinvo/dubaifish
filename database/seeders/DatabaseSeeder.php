@@ -45,7 +45,8 @@ class DatabaseSeeder extends Seeder
         Home::create([
             'text_en' => 'From the sea to your door',
             'text_ar' => 'من البحر لباب بيتك',
-            'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png'
+            'img' => 'https://uaefish.invoacdmy.com/storage/api/categories/16prnrLJe2JpvSp9hdDhmS8v2nyShUmbmbBFh3Qj.png',
+            'wa_phone' =>  '0552348923',
         ]);
 
         Category::create([
