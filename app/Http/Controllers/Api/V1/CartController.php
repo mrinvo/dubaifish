@@ -24,7 +24,7 @@ class CartController extends Controller
         ]);
 
         $old = Item::where('product_id',$request->product_id)
-        ->where('user_id',$request->user()->id)->first();
+        ->where('user_id',$request->user()->id)->where('order_id')->first();
 
         if($old){
             $old->update([
@@ -139,7 +139,7 @@ class CartController extends Controller
 
         ]);
         # code...
-        $item = Item::where('id',$id)->first();
+        $item = Item::where('id',$id)->where('order_id',null)->first();
 
         $product = Product::findOrFail($request->product_id);
 
@@ -202,7 +202,7 @@ class CartController extends Controller
     }
 
     public function usercount(Request $request){
-        $items = Item::where('user_id' , $request->user()->id)->get();
+        $items = Item::where('user_id' , $request->user()->id)->where('order_id',null)->get();
         $response = [
             'message' => trans('api.fetch'),
             'cart_count' => count($items),
@@ -229,7 +229,7 @@ class CartController extends Controller
         ]);
 
         $old = Item::where('product_id',$request->product_id)
-        ->where('uuid',$request->uuid)->first();
+        ->where('uuid',$request->uuid)->where('order_id',null)->first();
 
         if($old){
             $old->update([
@@ -339,7 +339,7 @@ class CartController extends Controller
 
         ]);
         # code...
-        $item = Item::where('id',$id)->where('uuid',$request->uuid)->first();
+        $item = Item::where('id',$id)->where('uuid',$request->uuid)->where('order_id',null)->first();
 
 
 
@@ -406,7 +406,7 @@ class CartController extends Controller
     }
 
     public function guestcount(Request $request){
-        $items = Item::where('uuid' , $request->uuid)->get();
+        $items = Item::where('uuid' , $request->uuid)->where('order_id',null)->get();
         $response = [
             'message' => trans('api.fetch'),
             'cart_count' => count($items),
