@@ -120,7 +120,7 @@ class OrderController extends Controller
 
 
     public function guestorders(Request $request){
-        $order = Order::with('items')->where('user_id',$request->user()->id)->get();
+        $order = Order::with('items')->where('uuid',$request->uuid)->get();
         $response = [
             'message' => trans('api.fetch'),
             'order items' => $order,

@@ -319,7 +319,9 @@ class CartController extends Controller
             'message' =>  trans('api.fetch'),
             'cart count' => count($items),
             'data' => $items,
-            'total price' => $total,
+            'shipping price' => 10,
+            'price' => $total,
+            'total_price' => $total + 10,
 
 
         ];
