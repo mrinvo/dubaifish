@@ -57,14 +57,14 @@ class OrderController extends Controller
 
 
     public function myorders(Request $request){
-        $order = Order::where('user_id',$request->user()->id)->get();
+        $order = Order::with('items')->where('user_id',$request->user()->id)->get();
         $response = [
             'message' => trans('api.fetch'),
             'order items' => $order,
         ];
         $stat = 201;
 
-
+)
         return response($response,$stat);
     }
 }
