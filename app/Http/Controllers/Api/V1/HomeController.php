@@ -19,6 +19,7 @@ class HomeController extends Controller
             'text_'.app()->getLocale().' as text',
             'img',
             'mode',
+            'wa_phone',
 
         ])->where('id',1)->first();
 

@@ -8,6 +8,7 @@ use App\Models\Admin;
 use App\Models\Category;
 use App\Models\Cleaning;
 use App\Models\Home;
+use App\Models\Payment;
 use App\Models\Product;
 use App\Models\Rule;
 use Illuminate\Database\Seeder;
@@ -120,6 +121,16 @@ class DatabaseSeeder extends Seeder
             'category_id'=> 2,
             'isfish' => false,
         ]);
+
+    Payment::create([
+        'name_en' => 'cridit cart',
+        'name_ar' => 'كريدت كارد',
+    ]);
+
+    Payment::create([
+        'name_en' => 'cash on delivery',
+        'name_ar' => ' الدفع عند الاستلام',
+    ]);
 
 
 
