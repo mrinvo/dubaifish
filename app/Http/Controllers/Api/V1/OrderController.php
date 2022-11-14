@@ -64,7 +64,7 @@ class OrderController extends Controller
         ];
         $stat = 201;
 
-)
+
         return response($response,$stat);
     }
 }
