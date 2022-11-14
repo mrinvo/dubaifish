@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('customer_phone');
             $table->bigInteger('payment_id');
             $table->string('lat')->nullable();
-            $table->string('long');
-            $table->string('guest_address');
-            $table->string('total_price');
+            $table->string('long')->nullable();
+            $table->string('guest_address')->nullable();
+            $table->string('total_price')->nullable();
             $table->timestamps();
         });
     }
