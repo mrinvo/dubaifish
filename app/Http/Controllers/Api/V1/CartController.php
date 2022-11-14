@@ -93,7 +93,7 @@ class CartController extends Controller
             'quantity',
             'user_id',
 
-        ])->where('user_id',$request->user()->id)->get();
+        ])->where('user_id',$request->user()->id)->where('order_id',null)->get();
 
         $payments = Payment::select([
             'id',
@@ -299,7 +299,7 @@ class CartController extends Controller
             'quantity',
             'uuid',
 
-        ])->where('uuid',$request->uuid)->get();
+        ])->where('uuid',$request->uuid)->where('order_id',null)->get();
 
         $total_clean = 0;
         $total_price = 0;

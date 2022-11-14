@@ -111,6 +111,9 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
     Route::post('/cart/guest/update/{id}',[CartController::class,'guestupdate']);
     Route::post('/cart/guest/delete/{id}',[CartController::class,'guestdelete']);
     Route::get('/cart/guest/count',[CartController::class,'guestcount']);
+    Route::post('/order/guest/store',[OrderController::class,'gueststore']);
+    Route::post('/order/guest/index',[OrderController::class,'guestorders']);
+
     //   guest end
 
 
