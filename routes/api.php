@@ -101,6 +101,7 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
     Route::post('/cart/user/delete/{id}',[CartController::class,'userdelete'])->middleware('auth:sanctum');
     Route::get('/cart/user/count',[CartController::class,'usercount'])->middleware('auth:sanctum');
     Route::post('/order/user/store',[OrderController::class,'userstore'])->middleware('auth:sanctum');
+    Route::post('/order/user/index',[OrderController::class,'myorders'])->middleware('auth:sanctum');
 
     //   user end
 

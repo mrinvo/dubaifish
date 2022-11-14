@@ -10,6 +10,7 @@ use App\Models\Verfication;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -340,20 +341,29 @@ class UserController extends Controller
             'phone' => 'required|numeric'
         ]);
 
-        $email = User::where('email','!=',$request->email)->first();
-        $phone  = User::where('phone','!=' , $request->phone)->first();
-
-
-        if($email){
-            return response(trans('email already exists'),422);
-        }
-
-
-        if($phone){
-            return response(trans('phone already exists'),422);
-        }
-
         $user = User::findOrFail($request->user()->id);
+
+        $emails = User::select([
+            'email'
+        ])->where('email','!=',$user->email)->get();
+
+        foreach ($emails as $email) {
+
+            if($email == $request->email){
+                return response('this email already exists',422);
+            }
+        }
+
+        $phones = User::select([
+            'phone'
+        ])->where('phone','!=',$user->phone)->get();
+
+        foreach ($phones as $phone) {
+
+            if($phone == $request->phone){
+                return response('this phone already exists',422);
+            }
+        }
 
         $user->update([
             'name' => $request->name,

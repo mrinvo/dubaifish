@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cleaning;
 use App\Models\Item;
+use App\Models\Payment;
 use App\Models\Product;
 
 class CartController extends Controller
@@ -94,6 +95,11 @@ class CartController extends Controller
 
         ])->where('user_id',$request->user()->id)->get();
 
+        $payments = Payment::select([
+            'id',
+            'name_'.app()->getLocale().' as name',
+        ])->get();
+
 
         $total_clean = 0;
         $total_price = 0;
@@ -112,8 +118,11 @@ class CartController extends Controller
         $response = [
             'message' =>  trans('api.fetch'),
             'cart count' => count($items),
+            'payments' => $payments,
             'data' => $items,
-            'total price' => $total,
+            'shipping price' => 10,
+            'price' => $total,
+            'total_price' => $total + 10,
 
 
         ];

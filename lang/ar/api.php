@@ -23,6 +23,7 @@ return [
     'emailverified' => 'تم توثيق الاميل',
     'notallowed' => 'عملية غير مصرح بها',
     'cartadded' => 'تم اضافة المنتح ال السلة',
+    'orderstored' => 'تم ارسال الطلب',
 
 
 ];

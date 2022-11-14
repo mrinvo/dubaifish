@@ -24,6 +24,7 @@ return [
     'emailverified' => 'your email is verified successfuly',
     'notallowed' => 'you are not allowed to do this process',
     'cartadded' => 'product added to cart',
+    'orderstored' => 'your order is placed successfuly',
 
 
 ];
