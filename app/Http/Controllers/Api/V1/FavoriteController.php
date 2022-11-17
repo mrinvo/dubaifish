@@ -56,4 +56,18 @@ class FavoriteController extends Controller
             return response('not exist',404);
         }
     }
+
+    public function index(Request $request){
+        $fav = Favorite::where('user_id',$request->user()->id)->get();
+        $response = [
+            'message' => trans('api.fetch'),
+            'data' => $fav,
+
+        ];
+
+        return response($response,201);
+
+
+
+    }
 }

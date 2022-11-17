@@ -127,8 +127,9 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
     // start favorite
 
     Route::post('/favorite/add',[FavoriteController::class,'add'])->middleware('auth:sanctum');
-    Route::post('/favorite/index',[FavoriteController::class,'index'])->middleware('auth:sanctum');
+
     Route::post('/favorite/delete/{id}',[FavoriteController::class,'delete'])->middleware('auth:sanctum');
+    Route::post('/favorite/index',[FavoriteController::class,'index'])->middleware('auth:sanctum');
 
 
     // end favorite
