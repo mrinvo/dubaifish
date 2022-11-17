@@ -86,60 +86,6 @@ class UserController extends Controller
             'expire_at' => Carbon::now()->addMinutes(10),
         ]);
     }
-
-
-
-    public function ForgetPasswordEmail(Request $request){
-
-        $request->validate([
-            'email' => 'required|exists:users,email',
-        ]);
-
-        $user = User::where('email',$request->email)->first();
-        $vf_code = $this->generateOtp($user->email);
-
-        if($vf_code){
-
-            $response = [
-
-                'Message' => trans('api.emailsent'),
-
-                'verify code' => $vf_code->otp_code,
-
-
-            ];
-
-
-            return response($response,201);
-        }
-    }
-
-    public function ResetPassword(Request $request){
-
-        $request->validate([
-
-            'password' => 'required|confirmed',
-            'email' =>'required|email|exists:users,email'
-        ]);
-
-        $user = User::find('email', $request->email)
-        ->update(['password' => Hash::make($request->password)]);
-
-        $response = [
-            'Message' => trans('api.emailsent'),
-
-            'user_data' => $user,
-
-        ];
-
-        return response($response,201);
-
-
-
-
-    }
-
-
     public function verify(Request $request){
 
         $request->validate([
@@ -180,6 +126,60 @@ class UserController extends Controller
 
     }
 
+
+    public function ForgetPasswordEmail(Request $request){
+
+        $request->validate([
+            'email' => 'required|exists:users,email',
+        ]);
+
+        $user = User::where('email',$request->email)->first();
+        $vf_code = $this->generateOtp($user->email);
+
+        if($vf_code){
+
+            $response = [
+
+                'Message' => trans('api.emailsent'),
+
+                'verify code' => $vf_code->otp_code,
+
+
+            ];
+
+
+            return response($response,201);
+        }
+    }
+
+    public function ResetPassword(Request $request){
+
+        $request->validate([
+
+            'password' => 'required|confirmed',
+
+        ]);
+
+        $user = User::find($request->user()->id)
+        ->update(['password' => Hash::make($request->password)]);
+
+        $response = [
+            'Message' => trans('api.emailsent'),
+
+            'user_data' => $user,
+
+        ];
+
+        return response($response,201);
+
+
+
+
+    }
+
+
+
+
     public function resetverify(Request $request){
 
         $request->validate([
@@ -199,11 +199,15 @@ class UserController extends Controller
 
         if($otp){
 
+            $token = $user->createToken('myapptoken')->plainTextToken;
+            $user->verified = 1;
+            $user->save();
+
             $response = [
 
-                'verified' => 1,
-
                 'Message' => trans('api.emailverified'),
+                'user' => $user,
+                'token' => $token,
             ];
 
             return response($response,201);

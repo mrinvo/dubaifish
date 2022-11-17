@@ -47,7 +47,7 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
 
     Route::post('/forget-password', [UserController::class, 'ForgetPasswordEmail']);
     Route::post('/resetverify',[UserController::class,'resetverify']);
-    Route::post('/reset-password', [UserController::class, 'ResetPassword']);
+    Route::post('/reset-password', [UserController::class, 'ResetPassword'])->middleware('auth:sanctum');
 
     // Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm']);
 
