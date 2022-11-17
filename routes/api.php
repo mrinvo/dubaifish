@@ -37,17 +37,19 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
 
     Route::post('/register',[UserController::class,'Register']);
     Route::post('/verify',[UserController::class,'verify'])->middleware('auth:sanctum');
-    Route::post('/resetverify',[UserController::class,'resetverify'])->middleware('auth:sanctum');
+
+
     Route::post('/logout',[UserController::class,'logout'])->middleware('auth:sanctum');
     Route::post('/login',[UserController::class,'login']);
     Route::get('/user/profile',[UserController::class,'profile'])->middleware('auth:sanctum');
     Route::post('/user/updateprofile',[UserController::class,'updateprofile'])->middleware('auth:sanctum');
     //password reset
 
-    Route::post('/forget-password', [UserController::class, 'ForgetPasswordEmail'])->middleware('auth:sanctum');
-    Route::post('/reset-password', [UserController::class, 'ResetPassword'])->middleware('auth:sanctum','verify');
+    Route::post('/forget-password', [UserController::class, 'ForgetPasswordEmail']);
+    Route::post('/resetverify',[UserController::class,'resetverify']);
+    Route::post('/reset-password', [UserController::class, 'ResetPassword']);
 
-    Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm']);
+    // Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm']);
 
     Route::post('/Regenerate',[UserController::class,'Regenerate'])->middleware('auth:sanctum');
     Route::get('/rules',[UserController::class,'rules']);

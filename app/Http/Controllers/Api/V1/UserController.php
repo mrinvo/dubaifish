@@ -87,11 +87,15 @@ class UserController extends Controller
         ]);
     }
 
+
+
     public function ForgetPasswordEmail(Request $request){
 
-        $user = User::where('id',$request->user()->id)->first();
-        $user->verified = 0;
-        $user->save();
+        $request->validate([
+            'email' => 'required|exists:users,email',
+        ]);
+
+        $user = User::where('email',$request->email)->first();
         $vf_code = $this->generateOtp($user->email);
 
         if($vf_code){
@@ -115,11 +119,20 @@ class UserController extends Controller
         $request->validate([
 
             'password' => 'required|confirmed',
-            'email' =>'required|email|exists:table,column'
+            'email' =>'required|email|exists:users,email'
         ]);
 
         $user = User::find('email', $request->email)
         ->update(['password' => Hash::make($request->password)]);
+
+        $response = [
+            'Message' => trans('api.emailsent'),
+
+            'user_data' => $user,
+
+        ];
+
+        return response($response,201);
 
 
 
@@ -170,11 +183,12 @@ class UserController extends Controller
     public function resetverify(Request $request){
 
         $request->validate([
-            'vf_code' => 'required|exists:verfications,otp_code'
+            'vf_code' => 'required|exists:verfications,otp_code',
+            'email' => 'required|email|exists:users,email'
         ]);
 
 
-        $otp = Verfication::where('user_id',$request->user()->id)->where('otp_code',$request->vf_code)->latest()->first();
+        $otp = Verfication::where('email',$request->email)->where('otp_code',$request->vf_code)->latest()->first();
         $now = Carbon::now()->addHours(2);
 
         // if($otp && $now->isAfter($otp->expire_at)){
@@ -184,13 +198,10 @@ class UserController extends Controller
         // }
 
         if($otp){
-            $user = User::where('id',$request->user()->id)->first();
-            $user->verified = 1;
-            $user->save();
-
-
 
             $response = [
+
+                'verified' => 1,
 
                 'Message' => trans('api.emailverified'),
             ];
@@ -198,7 +209,15 @@ class UserController extends Controller
             return response($response,201);
         }else{
 
-            return response(trans('api.notfound'),422);
+
+            $response = [
+
+                'verified' => 0,
+
+                'Message' => trans('api.notfound'),
+            ];
+
+            return response($response,422);
         }
 
 
