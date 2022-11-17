@@ -164,16 +164,14 @@ class UserController extends Controller
         ->update(['password' => Hash::make($request->password)]);
 
         $response = [
-            'Message' => trans('api.emailsent'),
+            'Message' => trans('api.stored'),
 
             'user_data' => $user,
 
         ];
 
+
         return response($response,201);
-
-
-
 
     }
 

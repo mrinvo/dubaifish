@@ -26,4 +26,5 @@ return [
     'orderstored' => 'تم ارسال الطلب',
 
 
+
 ];

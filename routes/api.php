@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\V1\CartController;
 use App\Http\Controllers\Api\V1\CategoyController;
 use App\Http\Controllers\Api\V1\CleaningController;
 use App\Http\Controllers\Api\V1\DebtsController;
+use App\Http\Controllers\Api\V1\FavoriteController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\HomeController;
 use App\Http\Controllers\Api\V1\OrderController;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\V1\password\ForgotPasswordController;
 use App\Http\Controllers\Api\V1\ProductController;
 use App\Http\Controllers\Api\V1\RateController;
+use App\Models\Favorite;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -121,6 +123,15 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
 
 
     //cart end
+
+    // start favorite
+
+    Route::post('/favorite/add',[FavoriteController::class,'add'])->middleware('auth:sanctum');
+    Route::post('/favorite/index',[FavoriteController::class,'index'])->middleware('auth:sanctum');
+    Route::post('/favorite/delete/{id}',[FavoriteController::class,'delete'])->middleware('auth:sanctum');
+
+
+    // end favorite
 
 
 
