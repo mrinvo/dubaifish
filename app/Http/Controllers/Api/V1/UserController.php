@@ -187,8 +187,8 @@ class UserController extends Controller
             'email' => 'required|email|exists:users,email'
         ]);
 
-
-        $otp = Verfication::where('email',$request->email)->where('otp_code',$request->vf_code)->latest()->first();
+        $user = User::where('email',$request->email)->first();
+        $otp = Verfication::where('user_id',$user->id)->where('otp_code',$request->vf_code)->latest()->first();
         $now = Carbon::now()->addHours(2);
 
         // if($otp && $now->isAfter($otp->expire_at)){
