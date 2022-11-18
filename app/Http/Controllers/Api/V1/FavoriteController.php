@@ -41,7 +41,7 @@ class FavoriteController extends Controller
     }
 
     public function delete($id){
-        $fav = Favorite::findOrFail($id);
+        $fav = Favorite::where('product_id',$id)->where('user_id',auth('sanctum')->user()->id);
         if($fav){
             $fav->delete();
 
