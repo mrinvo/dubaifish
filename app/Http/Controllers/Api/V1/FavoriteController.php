@@ -73,7 +73,7 @@ class FavoriteController extends Controller
         }])->where('user_id',$request->user()->id)->get();
         $response = [
             'message' => trans('api.fetch'),
-            'data' => $fav->setHidden('id','user_id','product_id','created_at','updated_at'),
+            'data' => collect($fav)->setHidden('id','user_id','product_id','created_at','updated_at'),
 
         ];
 
