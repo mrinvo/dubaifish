@@ -19,6 +19,7 @@ class Order extends Model
         'long',
         'total_price',
         'guest_address',
+        'notes',
 
     ];
 

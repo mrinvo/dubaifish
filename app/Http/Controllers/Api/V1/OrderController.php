@@ -21,6 +21,7 @@ class OrderController extends Controller
             'customer_name' => 'required|max:250',
             'customer_phone' => 'required|numeric',
             'total_price' => 'required|numeric',
+            'notes'=>'max:500',
         ]);
 
         $user_id = $request->user()->id;
@@ -32,6 +33,7 @@ class OrderController extends Controller
             'customer_name' => $request->customer_name,
             'customer_phone' => $request->customer_phone,
             'total_price' => $request->total_price,
+            'notes' => $request->notes
         ]);
 
 
@@ -81,6 +83,7 @@ class OrderController extends Controller
             'customer_name' => 'required|max:250',
             'customer_phone' => 'required|numeric',
             'total_price' => 'required|numeric',
+            'notes' =>'max:500',
 
         ]);
 
@@ -95,6 +98,7 @@ class OrderController extends Controller
             'total_price' => $request->total_price,
             'lat' => $request->lat,
             'long' => $request->long,
+            'notes'=> $request->notes,
         ]);
 
 
