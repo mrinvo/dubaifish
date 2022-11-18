@@ -38,7 +38,7 @@ class Product extends Model
 
     public function getIsFavoriteAttribute(){
         if(auth('sanctum')->user()){
-            $fav = Favorite::where('product_id',$this->id)->first();
+            $fav = Favorite::where('product_id',$this->id)->where('user_id',auth('sanctum')->user()->id)->first();
             if($fav){
                 return 1;
             }else{
