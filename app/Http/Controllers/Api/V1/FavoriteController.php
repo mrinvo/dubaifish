@@ -69,6 +69,7 @@ class FavoriteController extends Controller
                 'category_id',
                 'img',
                 'isfish',
+                'is_favorite'
             ]);
         }])->where('user_id',$request->user()->id)->get();
         $response = [

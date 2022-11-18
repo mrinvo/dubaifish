@@ -22,6 +22,8 @@ class Product extends Model
         'isfish'
     ];
 
+    protected $appends =['is_favorite'];
+
     public function rates(){
         return $this->hasMany(Rate::class);
     }
@@ -32,5 +34,16 @@ class Product extends Model
 
     public function item(){
         return $this->belongsTo(Item::class);
+    }
+
+    public function getIsFavoriteAttribute(){
+        if(auth('api')->user()){
+            $fav = Favorite::where('product_id',$this->id)->first();
+            if($fav){
+                return 1;
+            }else{
+                return 0;
+            }
+        }
     }
 }
