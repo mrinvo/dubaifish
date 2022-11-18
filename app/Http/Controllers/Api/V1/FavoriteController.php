@@ -58,7 +58,7 @@ class FavoriteController extends Controller
     }
 
     public function index(Request $request){
-        $fav = Favorite::where('user_id',$request->user()->id)->get();
+        $fav = Favorite::with('products')->where('user_id',$request->user()->id)->get();
         $response = [
             'message' => trans('api.fetch'),
             'data' => $fav,
