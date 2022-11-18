@@ -70,10 +70,10 @@ class FavoriteController extends Controller
                 'img',
                 'isfish',
             ]);
-        }])->where('user_id',$request->user()->id)->get();
+        }])->where('user_id',$request->user()->id)->makeHidden('id','user_id','product_id','created_at','updated_at')->get();
         $response = [
             'message' => trans('api.fetch'),
-            'data' => $fav->makeHidden('id','user_id','product_id','created_at','updated_at'),
+            'data' => $fav,
 
         ];
 
