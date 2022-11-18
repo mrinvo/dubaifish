@@ -69,7 +69,7 @@ class FavoriteController extends Controller
                 'category_id',
                 'img',
                 'isfish',
-                'is_favorite',
+
 
 
             ]);
