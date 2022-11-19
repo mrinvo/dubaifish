@@ -22,6 +22,6 @@ class HomeController extends Controller
         $categories = Category::all();
         $cleanings = Cleaning::all();
 
-        return view('admin.index',compact('new','users','products','categories','cleanings'));
+        return view('admin.index',compact('new','delivered','users','products','categories','cleanings'));
     }
 }
