@@ -15,8 +15,8 @@ class HomeController extends Controller
     //
 
     public function home(){
-        $new = Order::where('status','new')->get;
-        $delivered = Order::where('status','delivered')->get;
+        $new = Order::where('status','new')->get();
+        $delivered = Order::where('status','delivered')->get();
         $users = User::all();
         $products = Product::all();
         $categories = Category::all();
