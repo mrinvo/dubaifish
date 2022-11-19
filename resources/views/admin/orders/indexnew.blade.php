@@ -24,7 +24,7 @@
             </tr>
             </thead>
             <tbody>
-@foreach ($data-> as $order)
+@foreach ($data as $order)
 <tr>
       <td>{{ $order->customer_name }}</td>
       <td>{{ $order->customer_phone  }}</td>
