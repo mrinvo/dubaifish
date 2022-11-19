@@ -7,6 +7,7 @@ use App\Http\Controllers\dashboard\ProductController;
 use App\Http\Controllers\dashboard\HomeController;
 use App\Http\Controllers\dashboard\UserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\dashboard\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,7 +81,19 @@ Route::prefix('/dashboard')->name('admin.')->group(function (){
 
         Route::get('/product/delete/{id}',[ProductController::class,'delete'])->name('product.delete');
 
-        //end cacleaning routes
+        //end product routes
+
+        //orders routes
+        Route::post('/order/update',[OrderController::class,'update'])->name('order.update');
+        Route::get('/order/index/new',[OrderController::class,'indexnew'])->name('order.index.new');
+        Route::get('/order/index/delivered',[OrderController::class,'indexdelivered'])->name('order.index.delivered');
+        Route::get('/product/create',[OrderController::class,'create'])->name('product.create');
+        Route::post('/product/store',[OrderController::class,'store'])->name('product.store');
+        Route::get('/order/edit/{id}',[OrderController::class,'edit'])->name('order.edit');
+
+        Route::get('/order/delete/{id}',[ProductController::class,'delete'])->name('order.delete');
+
+        //end orders routes
 
         //user routes
         Route::post('/user/update',[UserController::class,'update'])->name('user.update');

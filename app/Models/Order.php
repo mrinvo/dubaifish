@@ -20,6 +20,7 @@ class Order extends Model
         'total_price',
         'guest_address',
         'notes',
+        'status',
 
     ];
 

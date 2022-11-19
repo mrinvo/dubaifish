@@ -15,12 +15,13 @@ class HomeController extends Controller
     //
 
     public function home(){
-        $orders = Order::all();
+        $new = Order::where('status','new')->get;
+        $delivered = Order::where('status','delivered')->get;
         $users = User::all();
         $products = Product::all();
         $categories = Category::all();
         $cleanings = Cleaning::all();
 
-        return view('admin.index',compact('orders','users','products','categories','cleanings'));
+        return view('admin.index',compact('new','users','products','categories','cleanings'));
     }
 }

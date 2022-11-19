@@ -45,7 +45,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="{{ rotue('admin.order.index.new') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>الطلبات الجديدة</p>
                 </a>
@@ -57,9 +57,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                <a href="{{ route('admin.order.index.delivered') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p> جميع الطلبات</p>
+                  <p>  الطلبات المنتهية</p>
                 </a>
               </li>
               <li class="nav-item">

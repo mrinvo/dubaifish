@@ -15,7 +15,7 @@ if ( Config::get('app.locale') == 'ar'){
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
-            <h3>{{ $orders->count() }}</h3>
+            <h3>{{ $new->count() }}</h3>
 
             <p>طلبات جديدة</p>
           </div>
@@ -30,7 +30,7 @@ if ( Config::get('app.locale') == 'ar'){
         <!-- small box -->
         <div class="small-box bg-success">
           <div class="inner">
-            <h3>{{ $orders->count() }}</h3>
+            <h3>{{ $delivered->count() }}</h3>
 
             <p>طلبات منتهية</p>
           </div>
