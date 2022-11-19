@@ -75,7 +75,7 @@
                    @endforeach
                 <tr>
                   <td>{{ $item->quantity }}</td>
-                  <td>Call of Duty</td>
+                  <td>{{ $item->product_name_ar }}</td>
                   <td>455-981-221</td>
                   <td>El snort testosterone trophy driving gloves handsome</td>
                   <td>$64.50</td>
