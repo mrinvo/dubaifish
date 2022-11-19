@@ -17,23 +17,20 @@
           <table id="example2" class="table table-bordered table-striped">
             <thead>
             <tr>
-              <th>id</th>
-              <th>الاسم العربي </th>
-              <th>الاسم الانجليزي </th>
-
-              <th>القسم</th>
-              <th>الصورة</th>
-              <th>تعديل-حزف</th>
+              <th> اسم العميل</th>
+              <th>هاتف العميل</th>
+              <th>التفاصيل</th>
+              <th>الحالة</th>
             </tr>
             </thead>
             <tbody>
-@foreach ($data as $order)
+@foreach ($data-> as $order)
 <tr>
-    <td>{{ $order->id }}</td>
-      <td>{{ $order->id }}</td>
-      <td>{{ $order->id  }}</td>
-      <td>{{ $order->id  }}</td>
-      <td><img width="50px" height="50px" src="{{ $order->id  }}" alt=""></td>
+      <td>{{ $order->customer_name }}</td>
+      <td>{{ $order->customer_phone  }}</td>
+      <td>
+        <a href="{{ route('admin.order.details',$order->id)  }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
+      </td>
       <td>
         <a href="{{ route('admin.product.edit',$order->id)  }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
         <br>

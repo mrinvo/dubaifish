@@ -15,4 +15,10 @@ class OrderController extends Controller
 
 
     }
+
+    public function details($id){
+        $order = Order::findOrFail($id);
+
+        return view("admin.orders.details",compact('order'));
+    }
 }
