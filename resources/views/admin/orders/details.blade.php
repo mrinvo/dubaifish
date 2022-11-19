@@ -6,11 +6,6 @@
 <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <div class="callout callout-info">
-          <h5><i class="fas fa-info"></i> Note:</h5>
-          This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
-        </div>
-
 
         <!-- Main content -->
         <div class="invoice p-3 mb-3">
@@ -65,11 +60,12 @@
               <table class="table table-striped">
                 <thead>
                 <tr>
-                  <th>Qty</th>
-                  <th>Product</th>
-                  <th>Serial #</th>
-                  <th>Description</th>
-                  <th>Subtotal</th>
+                  <th>الكمية</th>
+                  <th>المنتح</th>
+
+                  <th>طريقة التنظيف</th>
+                  <th>سعر طريقة التنظيف</th>
+                  <th>السعر</th>
                 </tr>
                 </thead>
                 <tbody>
