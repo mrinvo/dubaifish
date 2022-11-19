@@ -1,5 +1,4 @@
 @extends('admin.master.masterar')
-@extends('admin.master.masterar')
 @section('name')
 تفاصيل الطلب
 @endsection
