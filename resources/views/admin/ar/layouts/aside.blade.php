@@ -45,7 +45,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ rotue('admin.order.index.new') }}" class="nav-link">
+                <a href="{{ route('admin.order.index.new') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>الطلبات الجديدة</p>
                 </a>
