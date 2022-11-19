@@ -87,7 +87,7 @@ Route::prefix('/dashboard')->name('admin.')->group(function (){
         Route::post('/order/update',[OrderController::class,'update'])->name('order.update');
         Route::get('/order/index/new',[OrderController::class,'indexnew'])->name('order.index.new');
         Route::get('/order/index/delivered',[OrderController::class,'indexdelivered'])->name('order.index.delivered');
-        Route::get('/order/details/{$id}',[OrderController::class,'details'])->name('order.details');
+        Route::get('/order/details/{id}',[OrderController::class,'details'])->name('order.details');
         Route::get('/order/create',[OrderController::class,'create'])->name('product.create');
         Route::post('/order/store',[OrderController::class,'store'])->name('product.store');
         Route::get('/order/edit/{id}',[OrderController::class,'edit'])->name('order.edit');
