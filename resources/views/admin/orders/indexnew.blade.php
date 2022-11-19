@@ -27,7 +27,7 @@
             </tr>
             </thead>
             <tbody>
-@foreach ($data as $product)
+@foreach ($data as $order)
 <tr>
     <td>{{ $order->id }}</td>
       <td>{{ $order->id }}</td>
