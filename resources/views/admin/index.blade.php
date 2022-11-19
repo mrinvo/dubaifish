@@ -22,7 +22,7 @@ if ( Config::get('app.locale') == 'ar'){
           <div class="icon">
             <i class="ion ion-bag"></i>
           </div>
-          <a href="#" class="small-box-footer">كل الطلبات الجديدة <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="{{ route('admin.order.index.new') }}" class="small-box-footer">كل الطلبات الجديدة <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -37,7 +37,7 @@ if ( Config::get('app.locale') == 'ar'){
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">كل الطلبات المنتهية<i class="fas fa-arrow-circle-right"></i></a>
+          <a href="{{ route('admin.order.index.delivered') }}" class="small-box-footer">كل الطلبات المنتهية<i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->

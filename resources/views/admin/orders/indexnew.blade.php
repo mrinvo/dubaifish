@@ -35,7 +35,7 @@
       <td>{{ $order->id  }}</td>
       <td><img width="50px" height="50px" src="{{ $order->id  }}" alt=""></td>
       <td>
-        <a href="{{ route('admin.product.edit',$order->id  }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
+        <a href="{{ route('admin.product.edit',$order->id)  }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
         <br>
         <a href="{{ route('admin.product.delete',$order->id ) }}" id="delete" class="btn btn-danger sm"><i class="fas fa-trash-alt"></i></a>
       </td>
