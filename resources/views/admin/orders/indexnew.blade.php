@@ -10,7 +10,7 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title" style="float: right;">جميع الطلبات الجديدة</h3><br/>
-          <a href="{{ route('admin.order.status') }}" style="float: right" class="btn btn-info">اضافة منتج</a>
+
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -36,9 +36,9 @@
       </td>
       <td>{{ $order->created_at->toDayDateTimeString() }}</td>
       <td>
-        <a href="{{ route('admin.product.edit',$order->id)  }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
-        <br>
-        <a href="{{ route('admin.product.delete',$order->id ) }}" id="delete" class="btn btn-danger sm"><i class="fas fa-trash-alt"></i></a>
+
+        {{ ($order->status == 'new' ? 'جديد' : "تم التسلبم") }}
+
       </td>
     </tr>
 
