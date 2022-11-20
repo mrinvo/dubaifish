@@ -26,8 +26,8 @@
 
               <address>
                 <strong>تفاصيل صاحب الطلب</strong><br>
-               {{ $order->customer_name }}<br>
-               {{ $order->customer_phone }}<br>
+               {{ $order->customer_name }}<strong>اسم صاحب الطلب</strong><br>
+               {{ $order->customer_phone }}<strong>رقم صاحب الطلب</strong><br>
                <strong> العنوان </strong><br>
 
 
