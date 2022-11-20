@@ -119,8 +119,8 @@
               <p class="lead">الفاتورة</p>
 
               <div class="table-responsive">
-                {{-- <table class="table">
-                  <tr>
+                 <table class="table">
+                  {{-- <tr>
                     <th style="width:50%">سعر المنتجات و التنضيف :</th>
                     <td>{{  }}</td>
                   </tr> --}}
