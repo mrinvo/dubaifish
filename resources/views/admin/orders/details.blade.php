@@ -13,30 +13,20 @@
           <div class="row">
             <div class="col-12">
               <h4>
-                <i class="fas fa-globe"></i> AdminLTE, Inc.
-                <small class="float-right">Date: 2/10/2014</small>
+                <i class="fas fa-globe"></i> اسماك الامارات .
+                <small class="float-right">التاريخ : {{ $order->created_at->toDayDateTimeString() }}</small>
               </h4>
             </div>
             <!-- /.col -->
           </div>
           <!-- info row -->
           <div class="row invoice-info">
-            <div class="col-sm-2 invoice-col">
-              From
-              <address>
-                <strong>UAE Fish.</strong><br>
-                {{-- 795 Folsom Ave, Suite 600<br>
-                San Francisco, CA 94107<br>
-                Phone: (804) 123-5432<br>
-                Email: info@almasaeedstudio.com --}}
-              </address>
-            </div>
-            <!-- /.col -->
-            <div class="col-sm-5 invoice-col">
-              To
+
+            <div class="col-sm-6 invoice-col">
+
               <address>
                 <strong>تفاصيل صاحب الطلب</strong><br>
-              {{ $order->customer_name }} : اسم صاحب الطلب <br>
+              {{ $order->customer_name }} اسم صاحب الطلب :    <br>
                 San Francisco, CA 94107<br>
                 Phone: (555) 539-1037<br>
                 Email: john.doe@example.com
