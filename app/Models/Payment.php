@@ -9,4 +9,8 @@ class Payment extends Model
 {
     use HasFactory;
     protected $fillable = ['name_en','name_ar'];
+
+    public function order(){
+        return $this->belongsToMany(Order::class);
+    }
 }

@@ -103,7 +103,7 @@ class OrderController extends Controller
         $order = Order::create([
             'uuid' => $request->uuid,
             'payment_id' => $request->payment_id,
-            'address' => $request->address,
+            'guest_address' => $request->address,
             'customer_name' => $request->customer_name,
             'customer_phone' => $request->customer_phone,
             'total_price' => $request->total_price,

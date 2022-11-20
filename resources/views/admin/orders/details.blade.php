@@ -46,21 +46,21 @@
                         # code...
                     }else {
                         echo $order->guest_address . '<br>';
-                        echo 'guest';
+
                     }
 
                     @endphp
               </address>
             </div>
             <!-- /.col -->
-            <div class="col-sm-5 invoice-col">
+            {{-- <div class="col-sm-5 invoice-col">
               <b>Invoice #007612</b><br>
               <br>
               <b>Order ID:</b> 4F3S8J<br>
               <b>Payment Due:</b> 2/22/2014<br>
               <b>Account:</b> 968-34567
             </div>
-            <!-- /.col -->
+            <!-- /.col --> --}}
           </div>
           <!-- /.row -->
 
@@ -105,34 +105,32 @@
             <!-- accepted payments column -->
             <div class="col-6">
               <p class="lead">Payment Methods:</p>
-              <img src="../../dist/img/credit/visa.png" alt="Visa">
-              <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
-              <img src="../../dist/img/credit/american-express.png" alt="American Express">
-              <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
 
               <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
-                plugg
-                dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+                @php
+                    $pay = App\Models\Payment::find($order->payment_id);
+
+                    echo $pay->name_ar;
+                @endphp
               </p>
             </div>
             <!-- /.col -->
             <div class="col-6">
-              <p class="lead">Amount Due 2/22/2014</p>
+              <p class="lead">الفاتورة</p>
 
               <div class="table-responsive">
-                <table class="table">
+                {{-- <table class="table">
                   <tr>
-                    <th style="width:50%">Subtotal:</th>
-                    <td>$250.30</td>
+                    <th style="width:50%">سعر المنتجات و التنضيف :</th>
+                    <td>{{  }}</td>
+                  </tr> --}}
+                  <tr>
+                    <th>الشحن:</th>
+                    <td>10</td>
                   </tr>
                   <tr>
-                    <th>Shipping:</th>
-                    <td>$5.80</td>
-                  </tr>
-                  <tr>
-                    <th>Total:</th>
-                    <td>$265.24</td>
+                    <th>السعر الكلي:</th>
+                    <td>{{ $order->total_price }}</td>
                   </tr>
                 </table>
               </div>
