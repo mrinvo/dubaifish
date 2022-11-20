@@ -25,6 +25,9 @@ class OrderController extends Controller
         ]);
 
         $user_id = $request->user()->id;
+        $items = Item::where('user_id',$user_id)->where('order_id',null)->get();
+
+        if(count($items) > 0){
 
         $order = Order::create([
             'user_id' => $user_id,
@@ -53,6 +56,9 @@ class OrderController extends Controller
 
 
         return response($response,$stat);
+    }else{
+        return response('you do not have any items' , 404);
+    }
 
 
     }
@@ -86,6 +92,11 @@ class OrderController extends Controller
             'notes' =>'max:500',
 
         ]);
+        $items = Item::where('uuid',$request->uuid)->where('order_id',null)->get();
+
+        if(count($items) > 0){
+
+
 
 
 
@@ -118,7 +129,9 @@ class OrderController extends Controller
 
 
         return response($response,$stat);
-
+    }else{
+        return response('you do not have any items',404);
+    }
 
     }
 
