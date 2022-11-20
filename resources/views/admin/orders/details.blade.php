@@ -27,7 +27,7 @@
               <address>
                 <strong>تفاصيل صاحب الطلب</strong><br>
                {{ $order->customer_name }}  <strong style="float: right;">اسم صاحب الطلب :  </strong><br>
-               {{ $order->customer_phone }}  <strong style="float: right;">رقم صاحب الطلب :</strong><br>
+               {{ $order->customer_phone }}  <strong style="float: right;">رقم صاحب الطلب : </strong><br>
                <strong> العنوان </strong><br>
 
 
@@ -46,6 +46,7 @@
                         # code...
                     }else {
                         echo $order->guest_address . '<br>';
+                        echo 'guest';
                     }
 
                     @endphp
