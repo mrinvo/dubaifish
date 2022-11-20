@@ -53,14 +53,39 @@
               </address>
             </div>
             <!-- /.col -->
-            {{-- <div class="col-sm-5 invoice-col">
-              <b>Invoice #007612</b><br>
-              <br>
-              <b>Order ID:</b> 4F3S8J<br>
-              <b>Payment Due:</b> 2/22/2014<br>
-              <b>Account:</b> 968-34567
+             <div class="col-sm-5 invoice-col">
+            <div class="card-body">
+                <form enctype="multipart/form-data" role="form" method="POST" action="{{ route('admin.order.status') }}">
+                @csrf
+                <input type="hidden" name="id" value="{{ $order->id }}">
+
+
+                <div class="row">
+                <div class="col-sm-12">
+                    <!-- text input -->
+                    <div class="form-group">
+                    <label> حالة الطلب  </label>
+                    <select  name="status" class="form-control">
+                        <option {{ ($order->status == 'new' ? 'selected' : '') }} value="new">جديد</option>
+                        <option  {{ ($order->status == 'delivered' ? 'selected' : '') }}  value="delivered">تم التسليم</option>
+                    </select>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+
+                    <input type="submit" value="تغير الحالة" class="btn btn-info" name="" placeholder="Enter ...">
+                    </div>
+                </div>
+
+
+                </div>
+
             </div>
-            <!-- /.col --> --}}
+            </div>
+            <!-- /.col -->
           </div>
           <!-- /.row -->
 

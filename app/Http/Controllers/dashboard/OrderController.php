@@ -22,4 +22,15 @@ class OrderController extends Controller
 
         return view("admin.orders.details",compact('order'));
     }
+
+    public function status(Request $request){
+
+        $order = Order::find($request->id);
+        $order->update([
+            'status' => $request->status,
+        ]);
+
+        return redirect()->back();
+
+    }
 }

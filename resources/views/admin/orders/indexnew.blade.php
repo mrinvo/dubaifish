@@ -10,7 +10,7 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title" style="float: right;">جميع الطلبات الجديدة</h3><br/>
-          <a href="{{ route('admin.product.create') }}" style="float: right" class="btn btn-info">اضافة منتج</a>
+          <a href="{{ route('admin.order.status') }}" style="float: right" class="btn btn-info">اضافة منتج</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">

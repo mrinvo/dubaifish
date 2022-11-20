@@ -91,6 +91,8 @@ Route::prefix('/dashboard')->name('admin.')->group(function (){
         Route::get('/order/create',[OrderController::class,'create'])->name('product.create');
         Route::post('/order/store',[OrderController::class,'store'])->name('product.store');
         Route::get('/order/edit/{id}',[OrderController::class,'edit'])->name('order.edit');
+        Route::post('/order/status',[OrderController::class,'status'])->name('order.status');
+
 
         Route::get('/order/delete/{id}',[ProductController::class,'delete'])->name('order.delete');
 
