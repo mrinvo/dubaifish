@@ -60,6 +60,7 @@
               <table class="table table-striped">
                 <thead>
                 <tr>
+                  <th>#</th>
                   <th>الكمية</th>
                   <th>المنتح</th>
 
@@ -70,16 +71,19 @@
                 </thead>
                 <tbody>
 
-                   @foreach ($order->items as  $item)
+                   @foreach ($order->items as  $key=>$item)
 
-                   @endforeach
+
                 <tr>
+                  <td>{{ $key }}</td>
                   <td>{{ $item->quantity }}</td>
                   <td>{{ $item->product_name_ar }}</td>
                   <td>{{ $item->cleaning_name_ar }}</td>
                   <td>{{ $item->cleaning->price }}</td>
                   <td>{{ $item->product_price }}</td>
                 </tr>
+
+                @endforeach
 
                 </tbody>
               </table>
