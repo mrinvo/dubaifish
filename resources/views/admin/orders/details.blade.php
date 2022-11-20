@@ -35,8 +35,8 @@
                     if ($order->address_id) {
 
                         $add = App\Models\Address::find($order->address_id);
-                        echo $add->name '<br>';
-                        echo $add->address '<br>';
+                        echo $add->name. '<br>';
+                        echo $add->address .'<br>';
                         echo $add->building . '<br>';
                         echo $add->city . '<br>';
                         echo $add->emirate . '<br>';
