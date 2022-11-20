@@ -21,6 +21,7 @@
               <th> اسم العميل</th>
               <th>هاتف العميل</th>
               <th>التفاصيل</th>
+              <th>التاريخ</th>
               <th>الحالة</th>
             </tr>
             </thead>
@@ -33,6 +34,7 @@
       <td>
         <a href="{{ route('admin.order.details',$order->id)  }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
       </td>
+      <td>{{ $order->created_at }}</td>
       <td>
         <a href="{{ route('admin.product.edit',$order->id)  }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
         <br>
@@ -50,6 +52,7 @@
                 <th> اسم العميل</th>
                 <th>هاتف العميل</th>
                 <th>التفاصيل</th>
+                <th>التاريخ</th>
                 <th>الحالة</th>
             </tr>
             </tfoot>
