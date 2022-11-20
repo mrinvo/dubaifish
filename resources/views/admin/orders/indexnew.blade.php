@@ -17,6 +17,7 @@
           <table id="example2" class="table table-bordered table-striped">
             <thead>
             <tr>
+              <th>#</th>
               <th> اسم العميل</th>
               <th>هاتف العميل</th>
               <th>التفاصيل</th>
@@ -24,8 +25,9 @@
             </tr>
             </thead>
             <tbody>
-@foreach ($data as $order)
+@foreach ($data as $key=>$order)
 <tr>
+      <td>{{ $key }}</td>
       <td>{{ $order->customer_name }}</td>
       <td>{{ $order->customer_phone  }}</td>
       <td>
@@ -44,11 +46,11 @@
             </tbody>
             <tfoot>
             <tr>
-              <th>id</th>
-              <th> اسم العميل</th>
-              <th>هاتف العميل</th>
-              <th>التفاصيل</th>
-              <th>الحالة</th>
+                <th>#</th>
+                <th> اسم العميل</th>
+                <th>هاتف العميل</th>
+                <th>التفاصيل</th>
+                <th>الحالة</th>
             </tr>
             </tfoot>
           </table>
