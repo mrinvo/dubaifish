@@ -65,7 +65,7 @@
 
                   <th>طريقة التنظيف</th>
                   <th>سعر طريقة التنظيف</th>
-                  <th>السعر</th>
+                  <th>سعر المنتج</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -76,9 +76,9 @@
                 <tr>
                   <td>{{ $item->quantity }}</td>
                   <td>{{ $item->product_name_ar }}</td>
-                  <td>455-981-221</td>
-                  <td>El snort testosterone trophy driving gloves handsome</td>
-                  <td>$64.50</td>
+                  <td>{{ $item->cleaning_name_ar }}</td>
+                  <td>{{ $item->cleaning->price }}</td>
+                  <td>{{ $item->product_price }}</td>
                 </tr>
 
                 </tbody>
@@ -114,10 +114,6 @@
                     <td>$250.30</td>
                   </tr>
                   <tr>
-                    <th>Tax (9.3%)</th>
-                    <td>$10.34</td>
-                  </tr>
-                  <tr>
                     <th>Shipping:</th>
                     <td>$5.80</td>
                   </tr>
@@ -135,13 +131,14 @@
           <!-- this row will not appear when printing -->
           <div class="row no-print">
             <div class="col-12">
-              <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
-              <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
+              <a href="invoice-print.html" target="_blank" class="btn btn-primary float-right"><i class="fas fa-print"></i> Print</a>
+
+              {{-- <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
                 Payment
               </button>
               <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
                 <i class="fas fa-download"></i> Generate PDF
-              </button>
+              </button> --}}
             </div>
           </div>
         </div>
