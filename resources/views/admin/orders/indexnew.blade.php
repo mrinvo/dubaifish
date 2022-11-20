@@ -34,7 +34,7 @@
       <td>
         <a href="{{ route('admin.order.details',$order->id)  }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
       </td>
-      <td>{{ $order->created_at }}</td>
+      <td>{{ $order->created_at->toDayDateTimeString() }}</td>
       <td>
         <a href="{{ route('admin.product.edit',$order->id)  }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
         <br>
