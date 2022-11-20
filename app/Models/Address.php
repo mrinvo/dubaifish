@@ -18,5 +18,7 @@ class Address extends Model
         'name'
     ];
 
-
+public function order(){
+    return $this->belongsToMany(Order::class);
+}
 }

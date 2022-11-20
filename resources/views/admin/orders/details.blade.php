@@ -26,10 +26,29 @@
 
               <address>
                 <strong>تفاصيل صاحب الطلب</strong><br>
-              {{ $order->customer_name }} اسم صاحب الطلب :    <br>
-                San Francisco, CA 94107<br>
-                Phone: (555) 539-1037<br>
-                Email: john.doe@example.com
+               {{ $order->customer_name }}<br>
+               {{ $order->customer_phone }}<br>
+               <strong> العنوان </strong><br>
+
+
+                    @php
+                    if ($order->address_id) {
+
+                        $add = App\Models\Address::find($order->address_id);
+                        echo $add->name '<br>';
+                        echo $add->address '<br>';
+                        echo $add->building . '<br>';
+                        echo $add->city . '<br>';
+                        echo $add->emirate . '<br>';
+
+
+
+                        # code...
+                    }else {
+                        echo $order->guest_address . '<br>';
+                    }
+
+                    @endphp
               </address>
             </div>
             <!-- /.col -->
