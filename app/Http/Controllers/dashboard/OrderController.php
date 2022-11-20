@@ -10,7 +10,7 @@ class OrderController extends Controller
 {
     //
     public function indexnew(){
-        $data = Order::where('status','new')->get();
+        $data = Order::where('status','new')->orderBy('id','DESC')->get();
         return view('admin.orders.indexnew',compact('data'));
 
 
@@ -18,6 +18,7 @@ class OrderController extends Controller
 
     public function details($id){
         $order = Order::findOrFail($id);
+
 
         return view("admin.orders.details",compact('order'));
     }
