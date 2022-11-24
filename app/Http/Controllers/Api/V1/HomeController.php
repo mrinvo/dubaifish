@@ -91,4 +91,35 @@ class HomeController extends Controller
 
 
     }
+
+    public function aboutus(){
+
+        $about = Home::select([
+            'about_us_'.app()->getLocale().' as about_us',
+        ])->where('id',1)->first();
+        $response = [
+            'status' => true,
+            'StatusCode' => 201,
+            'data' => $about,
+
+        ];
+
+        return $response;
+
+    }
+    public function policy(){
+
+        $about = Home::select([
+            'policy_'.app()->getLocale().' as policy',
+        ])->where('id',1)->first();
+        $response = [
+            'status' => true,
+            'StatusCode' => 201,
+            'data' => $about,
+
+        ];
+
+        return $response;
+
+    }
 }

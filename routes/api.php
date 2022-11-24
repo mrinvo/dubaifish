@@ -146,6 +146,8 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
 
 
     Route::get('/home',[HomeController::class,'index']);
+    Route::get('/home/aboutus',[HomeController::class,'aboutus']);
+    Route::get('/home/policy',[HomeController::class,'policy']);
 
     Route::put('/home/update',[HomeController::class,'store'])->middleware('auth:sanctum');
 
