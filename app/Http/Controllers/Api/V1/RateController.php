@@ -12,10 +12,10 @@ class RateController extends Controller
     public function store(Request $request)
     {
 
-        $request->user_id = $request->user()->id;
-
+        $user_id = $request->user()->id;
+        array_merge($request->all(), ['user_id' => $user_id]);
         $check = Rate::where('product_id',$request->product_id)
-        ->where('user_id',$request->user_id)->first();
+        ->where('user_id',$user_id)->first();
 
         if($check){
             return response(trans('api.ratecheck'),422);
