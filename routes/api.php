@@ -92,7 +92,7 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
 
 
     //rates start
-    Route::post('/rates/add',[RateController::class,'store']);
+    Route::post('/rates/add',[RateController::class,'store'])->middleware('auth:sanctum');
     Route::get('/rates/ratesperproduct/{product_id}',[RateController::class,'ProductRates']);
     //rates end
 
