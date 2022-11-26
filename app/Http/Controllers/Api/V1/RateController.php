@@ -13,7 +13,7 @@ class RateController extends Controller
     {
 
         $user_id = $request->user()->id;
-        array_merge($request->all(), ['user_id' => $user_id]);
+
         $check = Rate::where('product_id',$request->product_id)
         ->where('user_id',$user_id)->first();
 
@@ -26,13 +26,18 @@ class RateController extends Controller
             'product_id'=> 'required|exists:products,id',
             'scale' => 'numeric|in:1,,2,3,4,5',
             'comment' => 'max:500',
-            'user_id'=>'required|exists:users,id',
+
         ]);
 
 
 
 
-        $rate = Rate::create($request->all());
+        $rate = Rate::create([
+            'product_id' => $request->product_id,
+            'user_id' => $user_id,
+            'scale' => $request->scale,
+            'comment' => $request->comment,
+        ]);
         $response = [
             'message' => trans('api.ratestored'),
             'data' => $rate,
