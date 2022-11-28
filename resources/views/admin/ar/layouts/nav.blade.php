@@ -5,10 +5,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('dashboard') }}" class="nav-link">Home</a>
+        <a href="{{ route('dashboard') }}" class="nav-link">الرئيسية</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+
       </li>
     </ul>
 
@@ -19,7 +19,7 @@
 
         <div class="input-group-append">
           <button class="btn btn-danger" type="submit">
-            Logout
+            تسجيل الخروج
           </button>
         </div>
       </div>
