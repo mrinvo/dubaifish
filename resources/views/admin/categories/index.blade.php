@@ -10,7 +10,7 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title" style="float: right;">جميع الاقسام</h3><br/>
-          <a href="{{ route('admin.category.create') }}" style="float: right" class="btn btn-info">اضافة قسم</a>
+          <a href="{{ route('admin.category.create') }}" style="float: left" class="btn btn-info">اضافة قسم</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
