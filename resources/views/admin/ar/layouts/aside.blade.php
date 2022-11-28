@@ -1,9 +1,10 @@
 @php
-        $new = Order::where('status','new')->get();
-        $users = User::all();
-        $products = Product::all();
-        $categories = Category::all();
-        $cleanings = Cleaning::all();
+
+        $new = App\Models\Order::where('status','new')->get();
+        $users = App\Models\User::all();
+        $products = App\Models\Product::all();
+        $categories = App\Models\Category::all();
+        $cleanings = App\Models\Cleaning::all();
 @endphp
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
