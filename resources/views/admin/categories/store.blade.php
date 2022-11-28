@@ -31,14 +31,14 @@
                 <!-- text input -->
                 <div class="form-group">
                   <label>الاسم العربي</label>
-                  <input type="text" class="form-control" name="name_ar" placeholder="Enter ...">
+                  <input required type="text" class="form-control" name="name_ar" placeholder="Enter ...">
                 </div>
               </div>
               <div class="col-sm-12">
                 <!-- text input -->
                 <div class="form-group">
                   <label>الاسم الانجليزي</label>
-                  <input type="text" class="form-control" name="name_en" placeholder="Enter ...">
+                  <input required type="text" class="form-control" name="name_en" placeholder="Enter ...">
                 </div>
               </div>
 
@@ -48,7 +48,7 @@
                 <!-- textarea -->
                 <div class="form-group">
                   <label>الوصف العربي</label>
-                  <textarea class="form-control" name="des_ar" rows="3" placeholder="Enter ..."></textarea>
+                  <textarea required class="form-control" name="des_ar" rows="3" placeholder="Enter ..."></textarea>
                 </div>
               </div>
 
@@ -58,7 +58,7 @@
                   <!-- textarea -->
                   <div class="form-group">
                     <label>الوصف الانجليزي</label>
-                    <textarea class="form-control" name="des_en" rows="3" placeholder="Enter ..."></textarea>
+                    <textarea required class="form-control" name="des_en" rows="3" placeholder="Enter ..."></textarea>
                   </div>
                 </div>
 
@@ -68,7 +68,7 @@
                   <!-- textarea -->
                   <div class="form-group">
                     <label>الصورة</label>
-                    <input type="file" class="form-control" name="img" placeholder="Enter ...">
+                    <input required type="file" class="form-control" name="img" placeholder="Enter ...">
                   </div>
                 </div>
 
