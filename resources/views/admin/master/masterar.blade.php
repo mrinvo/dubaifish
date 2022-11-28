@@ -31,6 +31,11 @@
   <!-- Custom style for RTL -->
   @yield('style')
   <link rel="stylesheet" href="/dashboard/dist/css/custom.css">
+  <style>
+    .dataTables_info{
+        display: none !important;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
