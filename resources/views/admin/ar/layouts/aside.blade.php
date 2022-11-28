@@ -23,7 +23,7 @@
           <img src="/dashboard/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">لوحة التحكم</a>
+          <a href="#" class="d-block">لوحة التحكم {{ Route::getCurrentRoute()->getPath() }}</a>
         </div>
       </div>
 
