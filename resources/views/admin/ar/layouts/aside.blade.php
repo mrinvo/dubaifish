@@ -1,3 +1,11 @@
+@php
+        $new = Order::where('status','new')->get();
+        $users = User::all();
+        $products = Product::all();
+        $categories = Category::all();
+        $cleanings = Cleaning::all();
+@endphp
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('dashboard') }}" class="brand-link">
@@ -24,7 +32,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="{{ route('dashboard') }}" class="nav-link active">
+            <a href="{{ route('dashboard') }}" class="nav-link {{ (Route::has('dashboard')) ? 'active' : "" }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
 
@@ -35,17 +43,17 @@
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link {{ (Route::has('order')) ? 'active' : "" }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                      الطلبات
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-info right">{{ $new->count() }}</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('admin.order.index.new') }}" class="nav-link">
+                <a href="{{ route('admin.order.index.new') }}" class="nav-link  ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>الطلبات الجديدة</p>
                 </a>
@@ -73,12 +81,12 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link {{ (Route::has('category')) ? 'active' : "" }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                      الاقسام
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-info right">{{ $categories->count() }}</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -100,12 +108,12 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link {{ (Route::has('cleaning')) ? 'active' : "" }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                      طرق التنظيف
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-info right">{{ $cleanings->count() }}</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -127,12 +135,12 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link {{ (Route::has('product')) ? 'active' : "" }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                      المنتجات
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-info right">{{ $products->count() }}</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -154,7 +162,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link {{ (Route::has('user')) ? 'active' : "" }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                      المستخدمين
