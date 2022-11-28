@@ -16,6 +16,13 @@ class OrderController extends Controller
 
     }
 
+    public function indexdelivered(){
+        $data = Order::where('status','delivered')->orderBy('id','DESC')->get();
+        return view('admin.orders.indexdelivered',compact('data'));
+
+
+    }
+
     public function details($id){
         $order = Order::findOrFail($id);
 

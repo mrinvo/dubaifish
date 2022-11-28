@@ -1,6 +1,6 @@
 @extends('admin.master.masterar')
 @section('name')
-المنتجات
+الطلبات المنتهية
 @endsection
 @section('content')
 <div class="row">
@@ -9,35 +9,36 @@
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title" style="float: right;">جميع المنتجات</h3><br/>
-          <a href="{{ route('admin.product.create') }}" style="float: right" class="btn btn-info">اضافة منتج</a>
+          <h3 class="card-title" style="float: right;">جميع الطلبات المنتهية</h3><br/>
+
         </div>
         <!-- /.card-header -->
         <div class="card-body">
           <table id="example2" class="table table-bordered table-striped">
             <thead>
             <tr>
-              <th>id</th>
-              <th>الاسم العربي </th>
-              <th>الاسم الانجليزي </th>
-
-              <th>القسم</th>
-              <th>الصورة</th>
-              <th>تعديل-حزف</th>
+              <th>#</th>
+              <th> اسم العميل</th>
+              <th>هاتف العميل</th>
+              <th>التفاصيل</th>
+              <th>التاريخ</th>
+              <th>الحالة</th>
             </tr>
             </thead>
             <tbody>
-@foreach ($products as $product)
+@foreach ($data as $key=>$order)
 <tr>
-    <td>{{ $product->id }}</td>
-      <td>{{ $product->name_ar }}</td>
-      <td>{{ $product->name_en }}</td>
-      <td>{{ $product->category->name_ar }}</td>
-      <td><img width="50px" height="50px" src="{{ $product->img }}" alt=""></td>
+      <td>{{ $key }}</td>
+      <td>{{ $order->customer_name }}</td>
+      <td>{{ $order->customer_phone  }}</td>
       <td>
-        <a href="{{ route('admin.product.edit',$product->id) }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
-        <br>
-        <a href="{{ route('admin.product.delete',$product->id) }}" id="delete" class="btn btn-danger sm"><i class="fas fa-trash-alt"></i></a>
+        <a href="{{ route('admin.order.details',$order->id)  }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
+      </td>
+      <td>{{ $order->created_at->toDayDateTimeString() }}</td>
+      <td>
+
+        {{ ($order->status == 'new' ? 'جديد' : "تم التسلبم") }}
+
       </td>
     </tr>
 
@@ -47,13 +48,12 @@
             </tbody>
             <tfoot>
             <tr>
-              <th>id</th>
-              <th>الاسم العربي </th>
-              <th>الاسم الانجليزي </th>
-
-              <th>الصورة</th>
-              <th>القسم</th>
-              <th>تعديل-حزف</th>
+                <th>#</th>
+                <th> اسم العميل</th>
+                <th>هاتف العميل</th>
+                <th>التفاصيل</th>
+                <th>التاريخ</th>
+                <th>الحالة</th>
             </tr>
             </tfoot>
           </table>
