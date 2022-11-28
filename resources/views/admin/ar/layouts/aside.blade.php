@@ -23,7 +23,7 @@
           <img src="/dashboard/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">لوحة التحكم {{ Route::currentRouteName()}}</a>
+          <a href="#" class="d-block">لوحة التحكم {{}}</a>
         </div>
       </div>
 
@@ -33,7 +33,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="{{ route('dashboard') }}" class="nav-link {{ (Route::has('home')) ? 'active' : "" }}">
+            <a href="{{ route('dashboard') }}" class="nav-link {{ ( Route::currentRouteName() == 'dashboard') ? 'active' : "" }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
 
@@ -44,7 +44,7 @@
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link {{ (Route::has('order')) ? 'active' : "" }}">
+            <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                      الطلبات
@@ -54,7 +54,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('admin.order.index.new') }}" class="nav-link  ">
+                <a href="{{ route('admin.order.index.new') }}" class="nav-link  {{ (Route::currentRouteName() == 'admin.order.index.new') ? 'active' : "" }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>الطلبات الجديدة</p>
                 </a>
@@ -66,23 +66,23 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('admin.order.index.delivered') }}" class="nav-link">
+                <a href="{{ route('admin.order.index.delivered') }}" class="nav-link {{ (Route::currentRouteName() == 'admin.order.index.delivered') ? 'active' : "" }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>  الطلبات المنتهية</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-topnav.html" class="nav-link">
+              {{-- <li class="nav-item">
+                <a href="{{ route }}" class="nav-link {{ (Route::currentRouteName() == 'dashboard') ? 'active' : "admin.order.index.delivered" }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة طلب</p>
                 </a>
-              </li>
+              </li> --}}
 
 
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link {{ (Route::has('category')) ? 'active' : "" }}">
+            <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                      الاقسام
@@ -92,14 +92,14 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('admin.category.index') }}" class="nav-link">
+                <a href="{{ route('admin.category.index') }}" class="nav-link {{ (Route::currentRouteName() == 'admin.category.index') ? 'active' : "" }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p> جميع  الاقسام</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{ route('admin.category.create') }}" class="nav-link">
+                <a href="{{ route('admin.category.create') }}" class="nav-link {{ (Route::currentRouteName() == 'admin.category.create') ? 'active' : "" }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة  الاقسام </p>
                 </a>
@@ -119,14 +119,14 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('admin.cleaning.index') }}" class="nav-link">
+                <a href="{{ route('admin.cleaning.index') }}" class="nav-link {{ (Route::currentRouteName() == 'admin.cleaning.index') ? 'active' : "" }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p> جميع  طرق التنظيف</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{ route('admin.cleaning.create') }}" class="nav-link">
+                <a href="{{ route('admin.cleaning.create') }}" class="nav-link {{ (Route::currentRouteName() == 'admin.category.create') ? 'active' : "" }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة  طرق التنظيف</p>
                 </a>
@@ -136,7 +136,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link {{ (Route::has('product')) ? 'active' : "" }}">
+            <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                      المنتجات
@@ -146,14 +146,14 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('admin.product.index') }}" class="nav-link">
+                <a href="{{ route('admin.product.index') }}" class="nav-link {{ (Route::currentRouteName() == 'admin.product.index') ? 'active' : "" }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p> جميع المنتجات</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{ route('admin.product.create') }}" class="nav-link">
+                <a href="{{ route('admin.product.create') }}" class="nav-link {{ (Route::currentRouteName() == 'admin.product.create') ? 'active' : "" }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة المنتجات</p>
                 </a>
@@ -163,28 +163,28 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link {{ (Route::has('user')) ? 'active' : "" }}">
+            <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                      المستخدمين
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-info right">{{ $users->count() }}</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('admin.user.index') }}" class="nav-link">
+                <a href="{{ route('admin.user.index') }}" class="nav-link {{ (Route::currentRouteName() == 'admin.user.index') ? 'active' : "" }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p> جميع المستخدمين</p>
                 </a>
               </li>
 
-              {{-- <li class="nav-item">
-                <a href="{{ route('admin.user.create') }}" class="nav-link">
+              <li class="nav-item">
+                <a href="{{ route('admin.user.create') }}" class="nav-link {{ (Route::currentRouteName() == 'admin.user.create') ? 'active' : "" }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>اضافة المستخدمين</p>
                 </a>
-              </li> --}}
+              </li>
 
 
             </ul>
