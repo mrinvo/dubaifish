@@ -22,6 +22,14 @@ class HomeController extends Controller
             'wa_phone',
 
         ])->where('id',1)->first();
+        $about = Home::select([
+            'about_us_'.app()->getLocale().' as about_us',
+        ])->where('id',1)->first();
+
+        $policy = Home::select([
+            'policy_'.app()->getLocale().' as policy',
+        ])->where('id',1)->first();
+
 
         // $categories =  Category::with('products')->get();
         $categories =  Category::with(['products' => function ($q){
@@ -53,6 +61,8 @@ class HomeController extends Controller
             'status' => true,
             'StatusCode' => 201,
             'message' => '',
+            'about' => $about,
+            'policy' => $policy,
             'home data' => $data,
             'categories' => $categories,
             'most selling' => $products,
