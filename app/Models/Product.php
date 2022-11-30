@@ -22,7 +22,7 @@ class Product extends Model
         'isfish'
     ];
 
-    protected $appends =['is_favorite'];
+    protected $appends =['is_favorite','can_rate'];
 
     public function rates(){
         return $this->hasMany(Rate::class);
@@ -43,6 +43,27 @@ class Product extends Model
                 return 1;
             }else{
                 return 0;
+            }
+        }
+    }
+    public function getCanRateAttribute(){
+        if(auth('sanctum')->user()){
+            $user_id =auth('sanctum')->user()->id;
+
+
+            if($this->order_id){
+
+                $order = Order::findOrFail($this->order_id);
+                if($order){
+                    if($order->user_id == $user_id){
+                        return true;
+                    }
+                }else{
+                    return false;
+                }
+
+            }else{
+                return false;
             }
         }
     }

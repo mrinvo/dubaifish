@@ -20,15 +20,12 @@ class HomeController extends Controller
             'img',
             'mode',
             'wa_phone',
-
-        ])->where('id',1)->first();
-        $about = Home::select([
             'about_us_'.app()->getLocale().' as about_us',
+            'deliver_policy_'.app()->getLocale().' as deliver_policy',
+            'return_policy_'.app()->getLocale().' as return_policy',
+
         ])->where('id',1)->first();
 
-        $policy = Home::select([
-            'policy_'.app()->getLocale().' as policy',
-        ])->where('id',1)->first();
 
 
         // $categories =  Category::with('products')->get();
@@ -61,8 +58,6 @@ class HomeController extends Controller
             'status' => true,
             'StatusCode' => 201,
             'message' => '',
-            'about' => $about,
-            'policy' => $policy,
             'home data' => $data,
             'categories' => $categories,
             'most selling' => $products,
