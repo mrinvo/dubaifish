@@ -22,7 +22,7 @@ class Product extends Model
         'isfish'
     ];
 
-    protected $appends =['is_favorite','can_rate'];
+    protected $appends =['is_favorite','can_rate','rates_count'];
 
     public function rates(){
         return $this->hasMany(Rate::class);
@@ -66,5 +66,11 @@ class Product extends Model
                 return false;
             }
         }
+    }
+
+    public function getRateCountAttribute(){
+
+        $r = Rate::where('product_id',$this->id)->get();
+        return count($r);
     }
 }
