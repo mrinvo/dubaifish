@@ -68,7 +68,7 @@ class Product extends Model
         }
     }
 
-    public function getRateCountAttribute(){
+    public function getRatesCountAttribute(){
 
         $r = Rate::where('product_id',$this->id)->get();
         return count($r);
