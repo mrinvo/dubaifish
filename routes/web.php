@@ -56,7 +56,8 @@ Route::prefix('/dashboard')->name('admin.')->group(function (){
         Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
         Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
         Route::get('/category/edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
-        Route::post('/category/update',[CategoryController::class,'update'])->name('category.update');
+        Route::post('/category/update',[CategoryController::class,'update'])->name('cat
+        egory.update');
         Route::get('/category/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
 
         //end categories routes
@@ -88,8 +89,8 @@ Route::prefix('/dashboard')->name('admin.')->group(function (){
         Route::get('/order/index/new',[OrderController::class,'indexnew'])->name('order.index.new');
         Route::get('/order/index/delivered',[OrderController::class,'indexdelivered'])->name('order.index.delivered');
         Route::get('/order/details/{id}',[OrderController::class,'details'])->name('order.details');
-        Route::get('/order/create',[OrderController::class,'create'])->name('product.create');
-        Route::post('/order/store',[OrderController::class,'store'])->name('product.store');
+        Route::get('/order/create',[OrderController::class,'create'])->name('order.create');
+        Route::post('/order/store',[OrderController::class,'store'])->name('order.store');
         Route::get('/order/edit/{id}',[OrderController::class,'edit'])->name('order.edit');
         Route::post('/order/status',[OrderController::class,'status'])->name('order.status');
 

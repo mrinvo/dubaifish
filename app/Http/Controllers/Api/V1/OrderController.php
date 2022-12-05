@@ -4,12 +4,47 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Item;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
+
 
 class OrderController extends Controller
 {
     //
 
+    public function sendNotification($user_id,$title,$body)
+    {
+        $firebaseToken = User::select(['fb_token'])->where('id',$user_id);
+
+        $SERVER_API_KEY = 'AAAARqbAuko:APA91bHFbceKOYUsvgvZa_39zkbIr9MrwvEuUA8usqzVSyQPP29zmNMyKeJSeHG5_Coc-7QpG5cFQBM83OaAsEoyQN5CnSQ5eImvlfnFzpItvKH4hTyIJepKQpgYXxZIVZ0aeaaDdBMV';
+
+        $data = [
+            "registration_ids" => $firebaseToken,
+            "notification" => [
+                "title" => $title,
+                "body" => $body,
+            ]
+        ];
+        $dataString = json_encode($data);
+
+        $headers = [
+            'Authorization: key=' . $SERVER_API_KEY,
+            'Content-Type: application/json',
+        ];
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+
+        $response = curl_exec($ch);
+
+        dd($response);
+    }
 /////////////////////////////////////////////// user order //////////////////////////
 
     public function userstore(Request $request){
@@ -53,6 +88,10 @@ class OrderController extends Controller
             'order items' => $items,
         ];
         $stat = 201;
+        $title = 'flskfj';
+        $body = 'dsklfjsdlf';
+        $this->sendNotification($user_id,$title,$body);
+
 
 
         return response($response,$stat);
