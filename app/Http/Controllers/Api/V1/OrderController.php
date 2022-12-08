@@ -43,7 +43,7 @@ class OrderController extends Controller
 
         $response = curl_exec($ch);
 
-        dd($response);
+
     }
 /////////////////////////////////////////////// user order //////////////////////////
 
@@ -88,9 +88,10 @@ class OrderController extends Controller
             'order items' => $items,
         ];
         $stat = 201;
-        $title = 'flskfj';
-        $body = 'dsklfjsdlf';
-        $this->sendNotification($user_id,$title,$body);
+        // $title = 'flskfj';
+        // $body = 'dsklfjsdlf';
+
+        // $this->sendNotification($user_id,$title,$body);
 
 
 
