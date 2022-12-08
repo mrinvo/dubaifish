@@ -36,7 +36,7 @@ class RuleController extends Controller
             'return_policy_en' => $request->return_policy_en,
             'return_policy_ar' => $request->return_policy_ar,
             'deliver_policy_en' => $request->deliver_policy_en,
-            'deliver_policy_ar' => $request->deliver_policy_en,
+            'deliver_policy_ar' => $request->deliver_policy_ar,
         ]);
 
         return redirect()->back();
