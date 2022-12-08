@@ -32,14 +32,14 @@
                 <!-- text input -->
                 <div class="form-group">
                   <label> سياسة الاستلام عربي</label>
-                  <textarea class="form-control"  name="description_ar" rows="3" placeholder="Enter ...">{{ $data->deliver_policy_en }}</textarea>
+                  <textarea class="form-control"  name="deliver_policy_ar" rows="3" placeholder="Enter ...">{{ $data->deliver_policy_ar }}</textarea>
                 </div>
               </div>
               <div class="col-sm-12">
                 <!-- text input -->
                 <div class="form-group">
                     <label> سياسة الاستلام انجليزي</label>
-                  <textarea class="form-control"  name="description_ar" rows="3" placeholder="Enter ...">{{ $data->deliver_policy_en }}</textarea>
+                  <textarea class="form-control"  name="deliver_policy_en" rows="3" placeholder="Enter ...">{{ $data->deliver_policy_en }}</textarea>
                 </div>
               </div>
 
@@ -49,7 +49,7 @@
                 <!-- textarea -->
                 <div class="form-group">
                     <label> سياسة الاسترجاع عربي</label>
-                  <textarea class="form-control"  name="description_ar" rows="3" placeholder="Enter ...">{{ $data->return_policy_en }}</textarea>
+                  <textarea class="form-control"  name="return_policy_ar" rows="3" placeholder="Enter ...">{{ $data->return_policy_ar }}</textarea>
                 </div>
               </div>
 
@@ -59,7 +59,7 @@
                   <!-- textarea -->
                   <div class="form-group">
                     <label> سياسة الاسترجاع انجليزي</label>
-                    <textarea class="form-control"  name="description_en" rows="3" placeholder="Enter ...">{{ $data->return_policy_ar }}</textarea>
+                    <textarea class="form-control"  name="return_policy_en" rows="3" placeholder="Enter ...">{{ $data->return_policy_en }}</textarea>
                   </div>
                 </div>
 
