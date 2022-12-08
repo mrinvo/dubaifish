@@ -8,6 +8,7 @@ use App\Http\Controllers\dashboard\HomeController;
 use App\Http\Controllers\dashboard\UserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\dashboard\OrderController;
+use App\Http\Controllers\dashboard\RuleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,10 +80,15 @@ Route::prefix('/dashboard')->name('admin.')->group(function (){
         Route::get('/product/create',[ProductController::class,'create'])->name('product.create');
         Route::post('/product/store',[ProductController::class,'store'])->name('product.store');
         Route::get('/product/edit/{id}',[ProductController::class,'edit'])->name('product.edit');
-
         Route::get('/product/delete/{id}',[ProductController::class,'delete'])->name('product.delete');
 
         //end product routes
+
+        //rule routes
+        Route::post('/rule/update',[RuleController::class,'update'])->name('rule.update');
+        Route::get('/rule/edit',[RuleController::class,'edit'])->name('rule.edit');
+
+        //end rule routes
 
         //orders routes
         Route::post('/order/update',[OrderController::class,'update'])->name('order.update');
