@@ -299,13 +299,14 @@ class UserController extends Controller
         }
 
         $token = $user->createToken('myapptoken')->plainTextToken;
-        $fb_token = $user->fb_token = $request->fb_token;
+        $user->update([
+            'fb_token' => $request->fb_token,
+        ]);
 
         $response = [
             'message' => 'logged in successfuly',
             'user' => $user,
             'token' => $token,
-            'fb_token' => $fb_token,
         ];
 
         return response($response,201);
