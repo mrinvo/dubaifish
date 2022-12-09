@@ -14,7 +14,7 @@ class OrderController extends Controller
 
     public function sendNotification($user_id,$title,$body)
     {
-        $firebaseToken = User::select(['fb_token'])->where('id',$user_id);
+        $firebaseToken = User::select(['fb_token'])->where('id',$user_id)->get();
 
         $SERVER_API_KEY = 'AAAARqbAuko:APA91bHFbceKOYUsvgvZa_39zkbIr9MrwvEuUA8usqzVSyQPP29zmNMyKeJSeHG5_Coc-7QpG5cFQBM83OaAsEoyQN5CnSQ5eImvlfnFzpItvKH4hTyIJepKQpgYXxZIVZ0aeaaDdBMV';
 
@@ -88,10 +88,10 @@ class OrderController extends Controller
             'order items' => $items,
         ];
         $stat = 201;
-        // $title = 'flskfj';
-        // $body = 'dsklfjsdlf';
+        $title = 'عملية ناجحة';
+        $body = 'تم ارسال طلبك بنجاح';
 
-        // $this->sendNotification($user_id,$title,$body);
+        $this->sendNotification($user_id,$title,$body);
 
 
 
