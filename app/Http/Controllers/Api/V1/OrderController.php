@@ -75,7 +75,7 @@ class OrderController extends Controller
         ]);
 
 
-        $items = Item::where('user_id',$user_id)->get();
+
 
         foreach($items as $item){
             $item->update([
